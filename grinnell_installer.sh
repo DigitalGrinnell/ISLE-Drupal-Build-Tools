@@ -101,10 +101,10 @@ drush -y -u 1 en islandora_pathauto
 drush -y -u 1 en islandora_pdfjs
 drush -y -u 1 en islandora_videojs
 drush -y -u 1 en xml_forms
-drush -y -u 1 en xml_form_builder
-drush -y -u 1 en xml_schema_api
-drush -y -u 1 en xml_form_elements
-drush -y -u 1 en xml_form_api
+# drush -y -u 1 en xml_form_builder     MAM... looks like these are all implicity enabled by the line above?
+# drush -y -u 1 en xml_schema_api
+# drush -y -u 1 en xml_form_elements
+# drush -y -u 1 en xml_form_api
 drush -y -u 1 en jquery_update
 drush -y -u 1 en zip_importer
 drush -y -u 1 en islandora_basic_image
