@@ -31,13 +31,13 @@ projects[islandora_bookmark][download][url] = "https://github.com/Islandora/isla
 projects[islandora_checksum][download][url] = "https://github.com/Islandora/islandora_checksum.git"
 projects[islandora_checksum_checker][download][url] = "https://github.com/islandora/islandora_checksum_checker.git"
   ; line below added 5-Dec-2018
-projects[islandora_collection_search][download][url] = "https://github.com/Islandora/islandora_collection_search.git"                            
+projects[islandora_collection_search][download][url] = "https://github.com/discoverygarden/islandora_collection_search.git"                            
 projects[islandora_fits][download][url] = "https://github.com/Islandora/islandora_fits.git"
 projects[islandora_form_fieldpanel][download][url] = "https://github.com/Islandora/islandora_form_fieldpanel.git"
 projects[islandora_importer][download][url] = "https://github.com/Islandora/islandora_importer.git"
 projects[islandora_internet_archive_bookreader][download][url] = "https://github.com/Islandora/islandora_internet_archive_bookreader.git"
-  ; line below added 5-Dec-2018
-projects[islandora_jw_player][download][url] = "https://github.com/Islandora/islandora_jw_player.git"                                            
+  ; line below added 5-Dec-2018 but it's deprecated so I removed it later
+; projects[islandora_jw_player][download][url] = "https://github.com/Islandora/islandora_jw_player.git"                                            
 projects[islandora_marcxml][download][url] = "https://github.com/Islandora/islandora_marcxml.git"
   ; four lines below added/modified 5-Dec-2018
 ; projects[islandora_mods_display][download][url] = "https://github.com/Islandora/islandora_mods_display.git"                                    
@@ -117,7 +117,7 @@ libraries[islandora_internet_archive_bookreader][type] = "library"
 ; MAM additions as 'drush enable' commands, for inclusion in grinnell_installer.sh
 ; drush -y -u 1 en islandora_binary_object
 ; drush -y -u 1 en islandora_collection_search
-; drush -y -u 1 en islandora_jw_player
+; DEPRECATED! drush -y -u 1 en islandora_jw_player
 ; drush -y -u 1 en islandora_mods_display
 ; drush -y -u 1 en islandora_pdfjs_reader
 ; drush -y -u 1 en islandora_solr_collection_view
