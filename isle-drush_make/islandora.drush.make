@@ -53,8 +53,8 @@ projects[islandora_openseadragon][download][url] = "https://github.com/Islandora
 projects[islandora_paged_content][download][url] = "https://github.com/Islandora/islandora_paged_content.git"
 projects[islandora_pathauto][download][url] = "https://github.com/Islandora/islandora_pathauto.git"
 projects[islandora_pdfjs][download][url] = "https://github.com/Islandora/islandora_pdfjs.git"
-  ; line below added 5-Dec-2018
-projects[islandora_pdfjs_reader][download][url] = "https://github.com/Islandora/islandora_pdfjs_reader.git"                                     
+  ; line below added 5-Dec-2018...removed, it's part of the repo above?
+; projects[islandora_pdfjs_reader][download][url] = "https://github.com/Islandora/islandora_pdfjs_reader.git"                                     
 projects[islandora_populator][download][url] = "https://github.com/Islandora/islandora_populator"
 projects[islandora_premis][download][url] = "https://github.com/Islandora/islandora_premis.git"
 projects[islandora_scholar][download][url] = "https://github.com/Islandora/islandora_scholar.git"
