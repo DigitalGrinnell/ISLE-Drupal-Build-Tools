@@ -29,7 +29,7 @@ cd /var/www/html/sites/all/modules || exit
 
 ## Site install
 echo "Installing Drupal Site"
-drush site-install -y --account-name={{getv "/drupal/admin/user"}} --account-pass={{getv "/drupal/admin/pass"}} --account-mail={{getv "/drupal/admin/email"}} --site-name="{{getv "/drupal/site/name"}}"
+drush site-install -y --account-name=$DRUPAL_ADMIN_USER --account-pass=$DRUPAL_ADMIN_PASS --account-mail=$DRUPAL_ADMIN_EMAIL --site-name=$DRUPAL_SITE_NAME
 
 ## Drush vset of all settings
 echo "Drush vset of Drupal Site configurations"
