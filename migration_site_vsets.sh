@@ -51,6 +51,9 @@ drush rap 'anonymous user' 'view fedora repository objects'
 echo "Running fix-permissions script"
 /bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 
+# MAM additions for Digital Grinnell.  Updated 7-Dec-2018
+drush -u 1 -y vset theme_default digital_grinnell_theme
+
 ## Cron job setup every three hours
 echo "Configuring cron job to run every 3 hours"
 echo "0 */3 * * * su -s /bin/bash www-data -c 'drush cron --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
