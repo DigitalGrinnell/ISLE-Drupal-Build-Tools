@@ -175,7 +175,7 @@ drush -y -u 1 en views_bootstrap
 # MAM addtions for DG-specific Islandora modules and Solution Packs.  See islandora.drush.make
 drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_collection_search
-drush -y -u 1 en islandora_jw_player
+# DEPRECATED drush -y -u 1 en islandora_jw_player
 drush -y -u 1 en islandora_mods_display
 drush -y -u 1 en islandora_pdfjs_reader
 drush -y -u 1 en islandora_solr_collection_view
