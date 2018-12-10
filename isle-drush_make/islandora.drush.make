@@ -29,7 +29,7 @@ projects[islandora_binary_object][download][url] = "https://github.com/Islandora
 projects[islandora_book_batch][download][url] = "https://github.com/Islandora/islandora_book_batch.git"
 projects[islandora_bookmark][download][url] = "https://github.com/Islandora/islandora_bookmark.git"
 projects[islandora_checksum][download][url] = "https://github.com/Islandora/islandora_checksum.git"
-projects[islandora_checksum_checker][download][url] = "https://github.com/Islandora-Labs/islandora_checksum_checker.git"
+projects[islandora_checksum_checker][download][url] = "https://github.com/islandora/islandora_checksum_checker.git"
   ; line below added 5-Dec-2018
 projects[islandora_collection_search][download][url] = "https://github.com/Islandora/islandora_collection_search.git"                            
 projects[islandora_fits][download][url] = "https://github.com/Islandora/islandora_fits.git"
