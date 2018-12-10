@@ -32,6 +32,7 @@ projects[islandora_checksum][download][url] = "https://github.com/Islandora/isla
 projects[islandora_checksum_checker][download][url] = "https://github.com/islandora/islandora_checksum_checker.git"
   ; line below added 5-Dec-2018
 projects[islandora_collection_search][download][url] = "https://github.com/discoverygarden/islandora_collection_search.git"                            
+  projects[islandora_collection_search][download][branch] = "7.x"                            
 projects[islandora_fits][download][url] = "https://github.com/Islandora/islandora_fits.git"
 projects[islandora_form_fieldpanel][download][url] = "https://github.com/Islandora/islandora_form_fieldpanel.git"
 projects[islandora_importer][download][url] = "https://github.com/Islandora/islandora_importer.git"
@@ -39,9 +40,10 @@ projects[islandora_internet_archive_bookreader][download][url] = "https://github
   ; line below added 5-Dec-2018 but it's deprecated so I removed it later
 ; projects[islandora_jw_player][download][url] = "https://github.com/Islandora/islandora_jw_player.git"                                            
 projects[islandora_marcxml][download][url] = "https://github.com/Islandora/islandora_marcxml.git"
-  ; four lines below added/modified 5-Dec-2018
+  ; five lines below added/modified 5-Dec-2018
 ; projects[islandora_mods_display][download][url] = "https://github.com/Islandora/islandora_mods_display.git"                                    
 projects[islandora_mods_display][download][url] = "https://github.com/DigitalGrinnell/islandora_mods_display.git"                                
+  projects[islandora_mods_display][download][branch] = "master"                                
 ; projects[islandora_multi_importer][download][url] = "https://github.com/mnylc/islandora_multi_importer.git"                                    
 ;   projects[islandora_multi_importer][download][branch] = "master"                                                                              
 projects[islandora_newspaper_batch][download][url] = "https://github.com/Islandora/islandora_newspaper_batch.git"
