@@ -76,12 +76,13 @@ projects[dg7][type] = "module"
 projects[dg7][subdir] = "custom"
 projects[dg7][download][type] = "git"
 projects[dg7][download][url] = "https://github.com/DigitalGrinnell/dg7.git"
+projects[dg7][download][branch] = "master"
 
 ; Custom theme added 7-Dec-2018
 projects[digital_grinnell_theme][type] = "theme"
 projects[digital_grinnell_theme][download][type] = "git"
 projects[digital_grinnell_theme][download][url] = "https://github.com/DigitalGrinnell/digital_grinnell_theme.git"
-
+projects[digital_grinnell_theme][download][branch] = "master"
 
 ; Libraries
 libraries[JAIL][download][type] = "git"
@@ -111,7 +112,7 @@ libraries[colorbox][type] = "library"
 
 ; MAM additions as 'drush enable' commands, for inclusion in grinnell_installer.sh
 ; drush -y -u 1 en announcements
-; drush -y -u 1 en digital_grinnell_theme
+; Not right?  drush -y -u 1 en digital_grinnell_theme
 ; drush -y -u 1 en dg7
 ; drush -y -u 1 en email
 ; drush -y -u 1 en google_analytics_counter
