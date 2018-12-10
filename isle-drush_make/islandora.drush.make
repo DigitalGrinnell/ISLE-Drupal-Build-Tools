@@ -24,7 +24,7 @@ projects[islandora_image_annotation][download][url] = "https://github.com/Island
 projects[islandora_bagit][download][url] = "https://github.com/Islandora/islandora_bagit.git"
 projects[islandora_batch][download][url] = "https://github.com/Islandora/islandora_batch.git"
   ; line below added 5-Dec-2018
-projects[islandora_binary_object][download][url] = "https://github.com/Islandora/islandora_binary_object.git"                                    
+projects[islandora_binary_object][download][url] = "https://github.com/Islandora-Labs/islandora_binary_object.git"                                    
 projects[islandora_book_batch][download][url] = "https://github.com/Islandora/islandora_book_batch.git"
 projects[islandora_bookmark][download][url] = "https://github.com/Islandora/islandora_bookmark.git"
 projects[islandora_checksum][download][url] = "https://github.com/Islandora/islandora_checksum.git"
