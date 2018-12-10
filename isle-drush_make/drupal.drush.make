@@ -6,13 +6,15 @@ projects[] = "drupal"
 
 ; Modules
 projects[admin_menu][subdir] = "contrib"
-projects[announcements][subdir] = "contrib"                    ; added 5-Dec-2018
+  ; line below added 5-Dec-2018
+projects[announcements][subdir] = "contrib"                    
 projects[ctools][subdir] = "contrib"
 projects[colorbox][subdir] = "contrib"
 projects[date][subdir] = "contrib"
 projects[datepicker][subdir] = "contrib"
 projects[devel][subdir] = "contrib"
-projects[email][subdir] = "contrib"                            ; added 5-Dec-2018
+  ; line below added 5-Dec-2018
+projects[email][subdir] = "contrib"                            
 projects[entity][subdir] = "contrib"
 projects[entity_view_mode][subdir] = "contrib"
 projects[entityreference][subdir] = "contrib"
@@ -20,35 +22,41 @@ projects[environment_indicator][subdir] = "contrib"
 projects[features_extra][subdir] = "contrib"
 projects[features][subdir] = "contrib"
 projects[google_analytics][subdir] = "contrib"
-projects[google_analytics_counter][subdir] = "contrib"         ; added 5-Dec-2018
-projects[google_analytics_report][subdir] = "contrib"          ; added 5-Dec-2018
-projects[google_analytics_report_api][subdir] = "contrib"      ; added 5-Dec-2018
+  ; three lines below added 5-Dec-2018
+projects[google_analytics_counter][subdir] = "contrib"         
+projects[google_analytics_report][subdir] = "contrib"          
+projects[google_analytics_report_api][subdir] = "contrib"      
 projects[panels][subdir] = "contrib"
 projects[imagemagick][subdir] = "contrib"
-projects[imagemagick_advanced][subdir] = "contrib"             ; added 5-Dec-2018
-projects[jw_player][subdir] = "contrib"                        ; added 5-Dec-2018
-projects[ldap_authentication][subdir] = "contrib"              ; added 5-Dec-2018
-projects[ldap_authorization_drupal_role][subdir] = "contrib"   ; added 5-Dec-2018
-projects[ldap_authorization][subdir] = "contrib"               ; added 5-Dec-2018
-projects[ldap_help][subdir] = "contrib"                        ; added 5-Dec-2018
-projects[ldap_query][subdir] = "contrib"                       ; added 5-Dec-2018
-projects[ldap_servers][subdir] = "contrib"                     ; added 5-Dec-2018
-projects[ldap_test][subdir] = "contrib"                        ; added 5-Dec-2018
-projects[ldap_user][subdir] = "contrib"                        ; added 5-Dec-2018
+  ; ten lines below added 5-Dec-2018
+projects[imagemagick_advanced][subdir] = "contrib"             
+projects[jw_player][subdir] = "contrib"                        
+projects[ldap_authentication][subdir] = "contrib"              
+projects[ldap_authorization_drupal_role][subdir] = "contrib"   
+projects[ldap_authorization][subdir] = "contrib"               
+projects[ldap_help][subdir] = "contrib"                        
+projects[ldap_query][subdir] = "contrib"                      
+projects[ldap_servers][subdir] = "contrib"                   
+projects[ldap_test][subdir] = "contrib"                      
+projects[ldap_user][subdir] = "contrib"                      
 projects[libraries][subdir] = "contrib"
 projects[link][subdir] = "contrib"
-projects[maillog][subdir] = "contrib"                          ; added 5-Dec-2018
-projects[markdown][subdir]  "contrib"                          ; added 7-Dec-2018
-projects[masquerade][subdir] = "contrib"                       ; added 5-Dec-2018
+  ; three lines below added 5-Dec-2018
+projects[maillog][subdir] = "contrib"                          
+projects[markdown][subdir]  "contrib"                          
+projects[masquerade][subdir] = "contrib"                      
 projects[nodequeue][subdir] = "contrib"
-projects[phpmailer][subdir] = "contrib"                        ; added 5-Dec-2018
+  ; line below added 5-Dec-2018
+projects[phpmailer][subdir] = "contrib"                       
 projects[rules][subdir] = "contrib"
-projects[r4032login][subdir] = "contrib"                       ; added 5-Dec-2018
+  ; line below added 5-Dec-2018
+projects[r4032login][subdir] = "contrib"                      
 projects[stage_file_proxy][subdir] = "contrib"
 projects[strongarm][subdir] = "contrib"
 projects[token][subdir] = "contrib"
 projects[views][subdir] = "contrib"
-projects[views_bootstrap][subdir] = "contrib"                  ; added 5-Dec-2018
+  ; line below added 5-Dec-2018
+projects[views_bootstrap][subdir] = "contrib"                
 projects[views_bulk_operations][subdir] = "contrib"
 projects[views_slideshow][subdir] = "contrib"
 projects[webform][subdir] = "contrib"
@@ -58,13 +66,13 @@ projects[webform_to_gdocs][subdir] = "contrib"
 projects[webform_workflow][subdir] = "contrib"
 projects[xmlsitemap][subdir] = "contrib"
 
-; Custom module                                                 ; added 7-Dec-2018
+; Custom module added 7-Dec-2018
 projects[dg7][type] = "module"
 projects[dg7][subdir] = "custom"
 projects[dg7][download][type] = "git"
 projects[dg7][download][url] = "https://github.com/DigitalGrinnell/dg7.git"
 
-; Custom theme                                                 ; added 7-Dec-2018
+; Custom theme added 7-Dec-2018
 projects[digital_grinnell_theme][type] = "theme"
 projects[digital_grinnell_theme][download][type] = "git"
 projects[digital_grinnell_theme][download][url] = "https://github.com/DigitalGrinnell/digital_grinnell_theme.git"
@@ -96,7 +104,7 @@ libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/arch
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 
-; MAM additions as 'drush enable' commands, for inclusion in isle_islandora_installer.sh
+; MAM additions as 'drush enable' commands, for inclusion in grinnell_installer.sh
 ; drush -y -u 1 en announcements
 ; drush -y -u 1 en digital_grinnell_theme
 ; drush -y -u 1 en dg7
