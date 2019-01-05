@@ -78,10 +78,16 @@ projects[dg7][download][type] = "git"
 projects[dg7][download][url] = "https://github.com/DigitalGrinnell/dg7.git"
 projects[dg7][download][branch] = "master"
 
-; Custom theme added 7-Dec-2018
+; Bootstrap theme added for subtheme, below, on 4-Jan-2019
+projects[bootstrap][type] = "theme"
+projects[bootstrap][download][type] = "git"
+projects[bootstrap][download][url] = "https://github.com/drupalprojects/bootstrap.git"
+projects[bootstrap][download][branch] = "7.x-3.x"
+
+; Custom theme added 7-Dec-2018; updated 4-Jan-2019
 projects[digital_grinnell_theme][type] = "theme"
 projects[digital_grinnell_theme][download][type] = "git"
-projects[digital_grinnell_theme][download][url] = "https://github.com/DigitalGrinnell/digital_grinnell_theme.git"
+projects[digital_grinnell_theme][download][url] = "https://github.com/DigitalGrinnell/digital_grinnell_bootstrap.git"
 projects[digital_grinnell_theme][download][branch] = "master"
 
 ; Libraries
