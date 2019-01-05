@@ -1,5 +1,13 @@
 #!/bin/bash
-
+#
+# This file, grinnell_installer.sh, is intended to replace isle_islandora_installer.sh in order to populate 
+# an ISLE instance with Digital.Grinnell-specific elements.  Run it like so:
+#
+#     time docker exec -it isle-apache-{SHORT_NAME} bash /utility-scripts/isle_drupal_build_tools/grinnell_installer.sh
+#
+# instead of:
+#
+#     time docker exec -it isle-apache-{SHORT_NAME} bash /utility-scripts/isle_drupal_build_tools/isle_islandora_installer.sh
 # 
 # @TODO Discuss with M.McFate on build_tools updates from builds.
 # Special thanks to Mark McFate for the improved versioning of the build tools.
