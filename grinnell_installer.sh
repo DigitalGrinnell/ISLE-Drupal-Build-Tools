@@ -158,6 +158,7 @@ drush iabookreader-plugin
 
 # MAM addtions for DG-specific Drupal modules.  See drupal.drush.make
 drush -y -u 1 en announcements
+drush -y -u 1 en backup_migrate
 # drush -y -u 1 en digital_grinnell_theme
 drush -y -u 1 en bootstrap
 drush -y -u 1 en digital_grinnell_bootstrap
