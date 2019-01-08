@@ -7,7 +7,9 @@ projects[] = "drupal"
 ; Modules
 projects[admin_menu][subdir] = "contrib"
   ; line below added 5-Dec-2018
-projects[announcements][subdir] = "contrib"                    
+projects[announcements][subdir] = "contrib"     
+  ; line below added 7-Jan-2019
+projects[backup_migrate][subdir] = "contrib"  
 projects[ctools][subdir] = "contrib"
 projects[colorbox][subdir] = "contrib"
 projects[date][subdir] = "contrib"
@@ -118,6 +120,7 @@ libraries[colorbox][type] = "library"
 
 ; MAM additions as 'drush enable' commands, for inclusion in grinnell_installer.sh
 ; drush -y -u 1 en announcements
+; drush -y -u 1 en backup_migrate
 ; Not right?  drush -y -u 1 en digital_grinnell_theme
 ; drush -y -u 1 en dg7
 ; drush -y -u 1 en email
