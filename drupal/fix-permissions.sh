@@ -86,4 +86,9 @@ for x in ./*/files; do
   find ${x} -type d -exec chmod ug=rwx,o= '{}' \;
   find ${x} -type f -exec chmod ug=rw,o= '{}' \;
 done
+
+printf "Changing private file path owner and permissions.../n"
+chown ${drupal_user}:${httpd_group} /var/private
+chmod 775 /var/private
+
 echo "Done setting proper permissions on files and directories"
