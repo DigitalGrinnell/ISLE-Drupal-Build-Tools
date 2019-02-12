@@ -1,5 +1,13 @@
 #!/bin/bash
-
+#
+# This file, grinnell_installer.sh, is intended to replace isle_islandora_installer.sh in order to populate
+# an ISLE instance with Digital.Grinnell-specific elements.  Run it like so:
+#
+#     time docker exec -it isle-apache-{SHORT_NAME} bash /utility-scripts/isle_drupal_build_tools/grinnell_installer.sh
+#
+# instead of:
+#
+#     time docker exec -it isle-apache-{SHORT_NAME} bash /utility-scripts/isle_drupal_build_tools/isle_islandora_installer.sh
 #
 # @TODO Discuss with M.McFate on build_tools updates from builds.
 # Special thanks to Mark McFate for the improved versioning of the build tools.
@@ -29,7 +37,7 @@ cd /var/www/html/sites/all/modules || exit
 
 ## Site install
 echo "Installing Drupal Site"
-drush site-install -y --account-name=isle --account-pass=isle --account-mail=admin@isle.localdomain --site-name="ISLE.localdomain"
+drush site-install -y --account-name=$DRUPAL_ADMIN_USER --account-pass=$DRUPAL_ADMIN_PASS --account-mail=$DRUPAL_ADMIN_EMAIL --site-name=$DRUPAL_SITE_NAME
 
 ## Drush vset of all settings
 echo "Drush vset of Drupal Site configurations"
@@ -59,7 +67,6 @@ drush -u 1 -y vset --format=json islandora_book_page_viewers '{"name":{"none":"n
 drush -u 1 -y vset --format=json islandora_large_image_viewers '{"name":{"none":"none","islandora_openseadragon":"islandora_openseadragon"},"default":"islandora_openseadragon"}'
 drush -u 1 -y vset --format=json islandora_newspaper_issue_viewers '{"name":{"none":"none","islandora_internet_archive_bookreader":"islandora_internet_archive_bookreader"},"default":"islandora_internet_archive_bookreader"}'
 drush -u 1 -y vset --format=json islandora_newspaper_page_viewers '{"name":{"none":"none","islandora_openseadragon":"islandora_openseadragon"},"default":"islandora_openseadragon"}'
-drush -u 1 -y vset --format=json islandora_pdf_viewers '{"name": {"none": "none","islandora_pdfjs": "islandora_pdfjs"},"default": "islandora_pdfjs"}'
 drush -u 1 -y vset islandora_openseadragon_iiif_identifier '[islandora_openseadragon:pid]~[islandora_openseadragon:dsid]~[islandora_openseadragon:token]'
 drush -u 1 -y vset islandora_openseadragon_iiif_token_header '0'
 drush -u 1 -y vset islandora_openseadragon_iiif_url 'iiif/2'
@@ -68,6 +75,7 @@ drush -u 1 -y vset islandora_internet_archive_bookreader_iiif_identifier '[islan
 drush -u 1 -y vset islandora_internet_archive_bookreader_iiif_token_header '0'
 drush -u 1 -y vset islandora_internet_archive_bookreader_iiif_url 'iiif/2'
 drush -u 1 -y vset islandora_internet_archive_bookreader_pagesource 'iiif'
+drush -u 1 -y vset file_private_path '/var/private'
 
 ## Enable all modules
 echo "Enabling all Drupal modules, Islandora modules first"
@@ -102,10 +110,10 @@ drush -y -u 1 en islandora_pathauto
 drush -y -u 1 en islandora_pdfjs
 drush -y -u 1 en islandora_videojs
 drush -y -u 1 en xml_forms
-drush -y -u 1 en xml_form_builder
-drush -y -u 1 en xml_schema_api
-drush -y -u 1 en xml_form_elements
-drush -y -u 1 en xml_form_api
+# drush -y -u 1 en xml_form_builder     MAM... looks like these are all implicity enabled by the line above?
+# drush -y -u 1 en xml_schema_api
+# drush -y -u 1 en xml_form_elements
+# drush -y -u 1 en xml_form_api
 drush -y -u 1 en jquery_update
 drush -y -u 1 en zip_importer
 drush -y -u 1 en islandora_basic_image
@@ -151,14 +159,17 @@ drush iabookreader-plugin
 
 # MAM addtions for DG-specific Drupal modules.  See drupal.drush.make
 drush -y -u 1 en announcements
-drush -y -u 1 en digital_grinnell_theme
+drush -y -u 1 en backup_migrate
+# drush -y -u 1 en digital_grinnell_theme
+drush -y -u 1 en bootstrap
+drush -y -u 1 en digital_grinnell_bootstrap
 drush -y -u 1 en dg7
 drush -y -u 1 en email
 drush -y -u 1 en google_analytics_counter
-drush -y -u 1 en google_analytics_report
-drush -y -u 1 en google_analytics_report_api
+# drush -y -u 1 en google_analytics_report
+# drush -y -u 1 en google_analytics_report_api
 drush -y -u 1 en imagemagick_advanced
-drush -y -u 1 en jw_player
+# drush -y -u 1 en jw_player
 drush -y -u 1 en ldap_authentication
 drush -y -u 1 en ldap_authorization_drupal_role
 drush -y -u 1 en ldap_authorization
@@ -169,18 +180,18 @@ drush -y -u 1 en ldap_test
 drush -y -u 1 en ldap_user
 drush -y -u 1 en maillog
 drush -y -u 1 en masquerade
-drush -y -u 1 en phpmailer
+# drush -y -u 1 en phpmailer
 drush -y -u 1 en r4032login
 drush -y -u 1 en views_bootstrap
 
 # MAM addtions for DG-specific Islandora modules and Solution Packs.  See islandora.drush.make
 drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_collection_search
-drush -y -u 1 en islandora_jw_player
+# DEPRECATED drush -y -u 1 en islandora_jw_player
 drush -y -u 1 en islandora_mods_display
-drush -y -u 1 en islandora_pdfjs_reader
+# drush -y -u 1 en islandora_pdfjs_reader
 drush -y -u 1 en islandora_solr_collection_view
-drush -y -u 1 en islandora_solution_pack_oralhistories
+# drush -y -u 1 en islandora_solution_pack_oralhistories
 
 # Due to Islandora Paged Content Module install hook, the islandora_paged_content_gs variable is overwritten by the install / enabling of the module back to /usr/bin/gs
 echo "Rerunning drush vset to ensure that Ghostscript works for the PDF DERIVATIVE SETTINGS"
@@ -198,14 +209,14 @@ drush rap 'anonymous user' 'view fedora repository objects'
 echo "Running fix-permissions script"
 /bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 
-## Cron job setup every three hours
+## Cron job setup
 echo "Configuring cron job to run every 3 hours"
-echo "0 */3 * * * su -s /bin/bash www-data -c 'drush cron --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
+echo "0 */3 * * * su -s /bin/bash www-data -c 'drush cron -u 1 --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
 crontab crondrupal
 rm crondrupal
 
-## Run cron first time, update update-status (rf), clear caches.
-echo 'Running Drupal Cron first time and clearing Drupal Caches.'
-su -s /bin/bash www-data -c 'drush cron && drush rf && drush cc all'
+## Clearing caches
+echo 'Clearing Drupal Caches.'
+su -s /bin/bash www-data -c 'drush -u 1 cc all'
 
 exit
