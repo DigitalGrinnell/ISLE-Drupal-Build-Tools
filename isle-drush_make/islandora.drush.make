@@ -93,10 +93,10 @@ projects[islandora_videojs][download][url] = "https://github.com/Islandora/islan
 projects[islandora_webform][download][url] = "https://github.com/commonmedia/islandora_webform.git"
   projects[islandora_webform][download][branch] = "7.x"
 projects[islandora_xacml_editor][download][url] = "https://github.com/Islandora/islandora_xacml_editor.git"
-  ; customized, see next three lines below
-; projects[islandora_xml_forms][download][url] = "https://github.com/Islandora/islandora_xml_forms.git"
-projects[islandora_xml_forms][download][url] = "https://github.com/DigitalGrinnell/islandora_xml_forms.git"
-  projects[islandora_xml_forms][download][branch] = "7.x"
+  ; Removed customization 12-Feb-2019, see next three lines below
+projects[islandora_xml_forms][download][url] = "https://github.com/Islandora/islandora_xml_forms.git"
+; projects[islandora_xml_forms][download][url] = "https://github.com/DigitalGrinnell/islandora_xml_forms.git"
+  ; projects[islandora_xml_forms][download][branch] = "7.x"
 projects[islandora_xmlsitemap][download][url] = "https://github.com/Islandora/islandora_xmlsitemap.git"
 
 projects[objective_forms][download][url] = "https://github.com/Islandora/objective_forms.git"
