@@ -8,11 +8,32 @@
 # Thank you, @McFateM!
 #
 
+# ----------
+echo "Checking for 01-* scripts in ISLE-Drupal-Build-Tools/custom.d"
+for f in /utility-scripts/isle_drupal_build_tools/custom.d/01-*.sh; do
+  echo "  Running $f..."
+  bash "time $f" -H || break
+done
+
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
 drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal.drush.make /tmp/drupal_install
 
+# ----------
+echo "Checking for 02-* scripts in ISLE-Drupal-Build-Tools/custom.d"
+for f in /utility-scripts/isle_drupal_build_tools/custom.d/02-*.sh; do
+  echo "  Running $f..."
+  bash "time $f" -H || break
+done
+
 echo "Using Islandora makefile for Islandora Modules for sample Drupal site within /tmp/drupal_install"
 drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora.drush.make /tmp/drupal_install
+
+# ----------
+echo "Checking for 03-* scripts in ISLE-Drupal-Build-Tools/custom.d"
+for f in /utility-scripts/isle_drupal_build_tools/custom.d/03-*.sh; do
+  echo "  Running $f..."
+  bash "time $f" -H || break
+done
 
 # @TODO pass by var
 echo "Update settings.php with ISLE default"
