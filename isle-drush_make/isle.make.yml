@@ -1,3 +1,7 @@
 includes:
-   - base.drush.make.yml
-   - drupal.drush.make.yml
+  - base.drush.make.yml
+  - drupal.drush.make.yml
+  - islandora.drush.make.yml
+  - ../custom.d/drupal-modules.drush.make.yml
+  - ../custom.d/islandora-modules.drush.make.yml
+  
