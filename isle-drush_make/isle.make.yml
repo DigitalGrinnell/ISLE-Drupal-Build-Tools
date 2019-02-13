@@ -4,3 +4,6 @@ includes:
   - base.drush.make.yml         # How about this?
   - drupal.drush.make.yml
   - islandora.drush.make.yml
+  - ../custom.d/drupal-modules.drush.make.yml
+  - ../custom.d/islandora-modules.drush.make.yml
+  

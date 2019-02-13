@@ -3,11 +3,3 @@ api: "2"
 
 projects:
   - drupal
-
-defaults:
-  projects:
-    type: "module"
-    download:
-      type: "git"
-      overwrite: "TRUE"
-    subdir: "contrib"

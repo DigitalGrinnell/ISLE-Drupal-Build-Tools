@@ -1,5 +1,10 @@
 defaults:
   projects:
+    type: "module"
+    download:
+      type: "git"
+      branch: ~
+      overwrite: "TRUE"
     subdir: "contrib"
 
 projects:
