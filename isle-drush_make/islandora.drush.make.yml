@@ -6,21 +6,14 @@
 
 defaults:
   projects:
-    type: module
     download:
-      type: git
       branch: 7.x-1.12
-      overwrite: TRUE
     subdir: islandora
 
 projects:
   - islandora
     download:
       url: https://github.com/Islandora/islandora
-  # - islandora_altmetrics    DEPRECATED
-  #   download:
-  #     url: https://github.com/Islandora/islandora_altmetrics
-  #     branch: 7.x
   - islandora_bagit
     download:
       url: https://github.com/Islandora/islandora_bagit
@@ -162,6 +155,11 @@ projects:
   - islandora_videojs
     download:
       url: https://github.com/Islandora/islandora_videojs
+
+# - islandora_altmetrics    DEPRECATED
+#   download:
+#     url: https://github.com/Islandora/islandora_altmetrics
+#     branch: 7.x
 
 libraries:
   - tuque
