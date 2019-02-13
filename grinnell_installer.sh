@@ -18,10 +18,11 @@
 
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
 # drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal.drush.make /tmp/drupal_install
-drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/isle.make.yml /tmp/drupal_install
+drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/isle.drupal.make.yml /tmp/drupal_install
 
-# echo "Using Islandora makefile for Islandora Modules for sample Drupal site within /tmp/drupal_install"
+echo "Using Islandora makefile for Islandora modules for sample Drupal site within /tmp/drupal_install"
 # drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora.drush.make /tmp/drupal_install
+drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/isle.islandora.drush.make /tmp/drupal_install
 
 # @TODO pass by var
 echo "Update settings.php with ISLE default"

@@ -1,0 +1,8 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/isle.islandora.make.yml
+#
+# This is the Drush "makefile" for building and customizing Islandora parts of the Apache container in an ISLE stack.
+#
+includes:
+  - base.drush.make.yml                            # declares core and API, builds Drupal 7.x
+  - islandora.drush.make.yml                       # standard ISLE Islandora contrib modules
+  - ../custom.d/islandora-modules.drush.make.yml   # custom Islandora contrib modules

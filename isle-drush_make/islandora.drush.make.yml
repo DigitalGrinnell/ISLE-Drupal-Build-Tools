@@ -6,7 +6,10 @@
 
 defaults:
   projects:
+    type: module
     download:
+      type: git
+      overwrite: TRUE
       branch: 7.x-1.12
     subdir: islandora
 
