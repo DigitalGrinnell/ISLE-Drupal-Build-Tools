@@ -11,4 +11,4 @@ defaults:
       type: "git"
       branch: "7.x-1.11"
       overwrite: "TRUE"
-    subdir: "islandora"
+    subdir: "contrib"
