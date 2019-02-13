@@ -118,6 +118,9 @@ libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/arch
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 
+includes:
+  - "../custom.d/drupal-modules.drush.make"
+
 ; MAM additions as 'drush enable' commands, for inclusion in grinnell_installer.sh
 ; drush -y -u 1 en announcements
 ; drush -y -u 1 en backup_migrate
