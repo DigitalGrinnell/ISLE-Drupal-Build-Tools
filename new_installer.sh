@@ -8,16 +8,8 @@
 # Thank you, @McFateM!
 #
 
-# echo " 01 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-# echo "Checking for 01-* scripts in ISLE-Drupal-Build-Tools/custom.d"
-# for f in /utility-scripts/isle_drupal_build_tools/custom.d/01-*.sh; do
-#   bash "$f" -H || break
-#   echo "$f finished."
-# done
-# echo " ----------------------------- 01"
-
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
-drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal.drush.make /tmp/drupal_install
+drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/isle.make /tmp/drupal_install
 
 # echo " 02 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 # echo "Checking for 02-* scripts in ISLE-Drupal-Build-Tools/custom.d"

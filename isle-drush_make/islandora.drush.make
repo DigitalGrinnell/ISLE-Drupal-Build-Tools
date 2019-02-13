@@ -1,20 +1,20 @@
-; Run this from within the sites/default or sites/all directory, whichever you prefer:
-; drush make --yes --no-core --contrib-destination=. islandora.drush.make
-
-; Core version
-core = 7.x
-
-; Should always be 2.
-api = 2
-
-; Modules
-
-; Defaults that apply to all modules.
-defaults[projects][type] = "module"
-defaults[projects][download][type] = "git"
-defaults[projects][download][branch]  = "7.x-1.11"
-defaults[projects][download][overwrite] = TRUE
-defaults[projects][subdir] = islandora
+; ; Run this from within the sites/default or sites/all directory, whichever you prefer:
+; ; drush make --yes --no-core --contrib-destination=. islandora.drush.make
+;
+; ; Core version
+; core = 7.x
+;
+; ; Should always be 2.
+; api = 2
+;
+; ; Modules
+;
+; ; Defaults that apply to all modules.
+; defaults[projects][type] = "module"
+; defaults[projects][download][type] = "git"
+; defaults[projects][download][branch]  = "7.x-1.11"
+; defaults[projects][download][overwrite] = TRUE
+; defaults[projects][subdir] = islandora
 
 projects[islandora][download][url] = "https://github.com/Islandora/islandora.git"
 projects[islandora_altmetrics][download][url] = "https://github.com/Islandora/islandora_altmetrics"
@@ -82,6 +82,3 @@ libraries[islandora_internet_archive_bookreader][download][type] = "get"
 libraries[islandora_internet_archive_bookreader][download][url] = "https://github.com/Islandora/internet_archive_bookreader/archive/master.zip"
 libraries[islandora_internet_archive_bookreader][directory_name] = "bookreader"
 libraries[islandora_internet_archive_bookreader][type] = "library"
-
-includes:
-  - "../custom.d/islandora-modules.drush.make"
