@@ -1,3 +1,14 @@
+projects:
+  - islandora_multi_importer
+    download:
+      url: https://github.com/mnylc/islandora_multi_importer.git
+      branch: master
+  - islandora_solution_pack_oralhistories
+    download:
+      url: https://github.com/Islandora-Labs/islandora_solution_pack_oralhistories.git
+      branch: 7.x
+
+
 # Nothing here yet.
 # ; ; drush make --yes --no-core --contrib-destination=. islandora.drush.make
 # ;

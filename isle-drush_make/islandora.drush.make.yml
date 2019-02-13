@@ -1,4 +1,8 @@
-# This should be a valid comment in any .yml file.
+# ISLE-Drupal-Build-Tools/isle-drush_make/islandora.drush.make.yml
+#
+# This is the Drush "makefile" for building standard Islandora parts (modules and libraries) of the
+# Apache container in an ISLE stack.
+#
 
 defaults:
   projects:
@@ -13,10 +17,10 @@ projects:
   - islandora
     download:
       url: https://github.com/Islandora/islandora.git
-      branch: ~
+      branch: 7.x
   - islandora_altmetrics
     download:
-      url: https://github.com/Islandora/islandora_altmetrics
+      url: https://github.com/Islandora/islandora_altmetrics.git
       branch: 7.x
   - islandora_image_annotation
     download:
@@ -28,3 +32,157 @@ projects:
   - islandora_batch
     download:
       url: https://github.com/Islandora/islandora_batch.git
+  - islandora_checksum
+    download:
+      url: https://github.com/Islandora/islandora_checksum.git
+  - islandora_checksum_checker
+    download]:
+      url: https://github.com/Islandora/islandora_checksum_checker.git
+  - islandora_fits
+    download:
+      url: https://github.com/Islandora/islandora_fits.git
+  - islandora_form_fieldpanel
+    download:
+      url: https://github.com/Islandora/islandora_form_fieldpanel.git
+  - islandora_altmetrics
+    download:
+      url: https://github.com/Islandora/islandora_altmetrics
+      branch: 7.x
+  - islandora_image_annotation
+    download:
+      url: https://github.com/Islandora/islandora_image_annotation.git
+      branch: 7.x
+  - islandora_importer
+    download:
+      url: https://github.com/Islandora/islandora_importer.git
+  - islandora_internet_archive_bookreader
+    download:
+      url: https://github.com/Islandora/islandora_internet_archive_bookreader.git
+  - islandora_marcxml
+    download:
+      url: https://github.com/Islandora/islandora_marcxml.git
+  - islandora_oai
+    download:
+      url: https://github.com/Islandora/islandora_oai.git
+  - islandora_ocr
+    download:
+      url: https://github.com/Islandora/islandora_ocr.git
+  - islandora_openseadragon
+    download:
+      url: https://github.com/Islandora/islandora_openseadragon.git
+  - islandora_paged_content
+    download:
+      url: https://github.com/Islandora/islandora_paged_content.git
+  - islandora_pathauto
+    download:
+      url: https://github.com/Islandora/islandora_pathauto.git
+  - islandora_pdfjs
+    download:
+      url: https://github.com/Islandora/islandora_pdfjs.git
+  - islandora_populator
+    download:
+      url: https://github.com/Islandora/islandora_populator
+  - islandora_premis
+    download:
+      url: https://github.com/Islandora/islandora_premis.git
+  - islandora_scholar
+    download:
+      url: https://github.com/Islandora/islandora_scholar.git
+  - islandora_simple_workflow
+    download:
+      url: https://github.com/Islandora/islandora_simple_workflow.git
+  - islandora_solr_facet_pages
+    download:
+      url: https://github.com/Islandora/islandora_solr_facet_pages.git
+  - islandora_solr_metadata
+    download:
+      url: https://github.com/Islandora/islandora_solr_metadata.git
+  - islandora_solr_search
+    download:
+      url: https://github.com/Islandora/islandora_solr_search.git
+  - islandora_solr_views
+    download:
+      url: https://github.com/Islandora/islandora_solr_views.git
+  - islandora_solution_pack_audio
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_audio.git
+  - islandora_solution_pack_book
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_book.git
+  - islandora_solution_pack_collection
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_collection.git
+  - islandora_solution_pack_compound
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_compound.git
+  - islandora_solution_pack_disk_image
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_disk_image.git
+  - islandora_solution_pack_entities
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_entities.git
+  - islandora_solution_pack_image
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_image.git
+  - islandora_solution_pack_large_image
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_large_image.git
+  - islandora_solution_pack_newspaper
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_newspaper.git
+  - islandora_solution_pack_pdf
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_pdf.git
+  - islandora_solution_pack_video
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_video.git
+  - islandora_solution_pack_web_archive
+    download:
+      url: https://github.com/Islandora/islandora_solution_pack_web_archive.git
+  - islandora_sync
+    download:
+      url: https://github.com/Islandora/islandora_sync.git
+      branch: 7.x
+  - islandora_usage_stats
+    download:
+      url: https://github.com/islandora/islandora_usage_stats
+  - islandora_xacml_editor
+    download:
+      url: https://github.com/Islandora/islandora_xacml_editor.git
+  - islandora_xml_forms
+    download:
+      url: https://github.com/Islandora/islandora_xml_forms.git
+  - islandora_xmlsitemap
+    download:
+      url: https://github.com/Islandora/islandora_xmlsitemap.git
+  - objective_forms
+    download:
+      url: https://github.com/Islandora/objective_forms.git
+  - islandora_newspaper_batch
+    download:
+      url: https://github.com/Islandora/islandora_newspaper_batch.git
+  - php_lib
+    download:
+      url: https://github.com/Islandora/php_lib.git
+  - islandora_webform
+    download:
+      url: https://github.com/commonmedia/islandora_webform.git
+      branch: 7.x
+  - islandora_videojs
+    download:
+      url: https://github.com/Islandora/islandora_videojs.git
+
+libraries:
+  - tuque
+    download:
+      type: git
+      overwrite: TRUE
+      branch: 1.x
+      url: https://github.com/Islandora/tuque.git
+    type: library
+  - islandora_internet_archive_bookreader
+    download:
+      type: get
+      url: https://github.com/Islandora/internet_archive_bookreader/archive/master.zip
+      directory_name: bookreader
+    type: library
