@@ -1,9 +1,10 @@
-# Is this a valid comment?
-
+# ISLE-Drupal-Build-Tools/isle-drush_make/isle.make.yml
+#
+# This is the master Drush "makefile" for building and customizing Drupal parts of the Apache container in an ISLE stack.
+#
 includes:
-  - base.drush.make.yml         # How about this?
-  - drupal.drush.make.yml
-  - islandora.drush.make.yml
-  - ../custom.d/drupal-modules.drush.make.yml
-  - ../custom.d/islandora-modules.drush.make.yml
-  
+  - base.drush.make.yml                            # declares core and API, builds Drupal 7.x
+  - drupal.drush.make.yml                          # standard ISLE Drupal contrib modules
+  - islandora.drush.make.yml                       # standard ISLE Islandora contrib modules
+  - ../custom.d/drupal-modules.drush.make.yml      # custom Drupal contrib modules and themes
+  - ../custom.d/islandora-modules.drush.make.yml   # custom Islandora contrib modules

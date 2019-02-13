@@ -1,3 +1,8 @@
+
+# ISLE-Drupal-Build-Tools/isle-drush_make/drupal.drush.make.yml
+#
+# This is the Drush "makefile" for building standard Drupal parts of the Apache container in an ISLE stack.
+#
 defaults:
   projects:
     type: "module"
