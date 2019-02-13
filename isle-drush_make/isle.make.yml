@@ -1,7 +1,6 @@
-Hope this works.
----
+# Is this a valid comment?
+
 includes:
-  - base.drush.make.yml
+  - base.drush.make.yml         # How about this?
   - drupal.drush.make.yml
   - islandora.drush.make.yml
-  

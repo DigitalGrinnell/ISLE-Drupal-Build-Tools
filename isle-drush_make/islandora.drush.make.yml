@@ -1,5 +1,5 @@
-This should be a valid comment in any .yml file.
----
+# This should be a valid comment in any .yml file.
+
 defaults:
   projects:
     type: "module"
