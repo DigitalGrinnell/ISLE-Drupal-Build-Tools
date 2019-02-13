@@ -16,10 +16,10 @@ defaults:
 projects:
   - islandora
     download:
-      url: https://github.com/Islandora/islandora
+      url: http://github.com/Islandora/islandora
   - islandora_bagit
     download:
-      url: https://github.com/Islandora/islandora_bagit
+      url: http://github.com/Islandora/islandora_bagit
   - islandora_batch
     download:
       url: https://github.com/Islandora/islandora_batch
