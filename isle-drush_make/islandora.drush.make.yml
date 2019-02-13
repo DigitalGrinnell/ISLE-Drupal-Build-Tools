@@ -1,0 +1,29 @@
+This should be a valid comment in any .yml file.
+---
+defaults:
+  projects:
+    type: "module"
+    download:
+      type: "git"
+      branch: "7.x-1.11"
+      overwrite: TRUE
+    subdir: islandora
+
+projects:
+  - islandora
+    download:
+      url: "https://github.com/Islandora/islandora.git"
+  - islandora_altmetrics
+    download:
+      url: "https://github.com/Islandora/islandora_altmetrics"
+      branch: "7.x"
+  - islandora_image_annotation
+    download:
+      url: "https://github.com/Islandora/islandora_image_annotation.git"
+      branch: "7.x"
+  - islandora_bagit
+    download:
+      url: "https://github.com/Islandora/islandora_bagit.git"
+  - islandora_batch
+    download:
+      url: "https://github.com/Islandora/islandora_batch.git"
