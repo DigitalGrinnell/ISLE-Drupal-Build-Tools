@@ -1,11 +1,11 @@
 projects:
   - islandora_multi_importer
     download:
-      url: https://github.com/mnylc/islandora_multi_importer.git
-      branch: master
+      url: https://github.com/mnylc/islandora_multi_importer
+      branch: 7.x-1.11
   - islandora_solution_pack_oralhistories
     download:
-      url: https://github.com/Islandora-Labs/islandora_solution_pack_oralhistories.git
+      url: https://github.com/Islandora-Labs/islandora_solution_pack_oralhistories
       branch: 7.x
 
 
