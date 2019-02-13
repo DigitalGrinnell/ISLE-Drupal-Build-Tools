@@ -11,8 +11,8 @@
 # ----------
 echo "Checking for 01-* scripts in ISLE-Drupal-Build-Tools/custom.d"
 for f in /utility-scripts/isle_drupal_build_tools/custom.d/01-*.sh; do
-  echo "  Running $f..."
-  bash "time $f" -H || break
+  bash "$f" -H || break
+  echo "$f finished."
 done
 
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
@@ -21,8 +21,8 @@ drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush
 # ----------
 echo "Checking for 02-* scripts in ISLE-Drupal-Build-Tools/custom.d"
 for f in /utility-scripts/isle_drupal_build_tools/custom.d/02-*.sh; do
-  echo "  Running $f..."
-  bash "time $f" -H || break
+  bash "$f" -H || break
+  echo "$f finished."
 done
 
 echo "Using Islandora makefile for Islandora Modules for sample Drupal site within /tmp/drupal_install"
@@ -31,8 +31,8 @@ drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/is
 # ----------
 echo "Checking for 03-* scripts in ISLE-Drupal-Build-Tools/custom.d"
 for f in /utility-scripts/isle_drupal_build_tools/custom.d/03-*.sh; do
-  echo "  Running $f..."
-  bash "time $f" -H || break
+  bash "$f" -H || break
+  echo "$f finished."
 done
 
 # @TODO pass by var
