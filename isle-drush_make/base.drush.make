@@ -4,11 +4,11 @@ projects:
 	- drupal
 defaults:
 	projects:
-	  type: "module"
+		type: "module"
 		download:
-		  type: "git"
-			branch: "7.x-1.11"
-			overwrite: "TRUE"
+	 		type: "git"
+   		branch: "7.x-1.11"
+	 		overwrite: "TRUE"
 		subdir: "islandora"
 
 ; Defaults that apply to all modules unless overridden.
