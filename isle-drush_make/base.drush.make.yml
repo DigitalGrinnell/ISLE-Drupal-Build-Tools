@@ -9,6 +9,5 @@ defaults:
     type: "module"
     download:
       type: "git"
-      branch: "7.x-1.11"
       overwrite: "TRUE"
     subdir: "contrib"
