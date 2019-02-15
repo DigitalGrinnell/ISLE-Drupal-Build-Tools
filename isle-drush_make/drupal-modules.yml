@@ -1,0 +1,112 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/drupal.drush.make.yml
+#
+# This is the Drush "makefile" for building a STOCK Drupal site and contributed parts (modules and libraries) of the
+# Apache container in an ISLE stack.
+#
+# Important!  Since the projects here all use the default options, and reqiure no options of their own, it
+#   is acceptable to list them with the following syntax:
+#
+#   projects:
+#     - project-name
+#     - project-name
+#
+#   However, libraries require options that do NOT match the defaults, so they must be declared like:
+#
+#   libraries:
+#     library-project-name:
+#       download:
+#         url: https://path-to-project-repo
+#         type: git (or 'get' in the case of non-git repopositories)
+#         directory_name: directory-name-for-the-local-instance
+#       type: library
+#
+# This is a YAML file... indentation is critical, so don't screw it up!
+#
+# Projects are listed in ALPHABETICAL order.  Please maintain the order and use trailing comments as necessary.
+#
+core: 7.x   # Required
+api: 2      # Required
+
+defaults:    # Declaring defaults here
+
+  projects:
+    type: module
+    download:
+      type: git
+      overwrite: TRUE
+    subdir: contrib
+
+projects:
+  drupal:          # build the site/core here w/ contrib modules to follow
+    version: 7.x
+
+projects:
+  
+  - admin_menu
+  - ctools
+  - colorbox
+  - date
+  - datepicker
+  - devel
+  - entity
+  - entity_view_mode
+  - entityreference
+  - environment_indicator
+  - features_extra
+  - features
+  - google_analytics
+  - imagemagick
+  - libraries
+  - link
+  - nodequeue
+  - panels
+  - rules
+  - stage_file_proxy
+  - strongarm
+  - token
+  - views
+  - views_bulk_operations
+  - views_slideshow
+  - webform
+  - webform_ajax
+  - webform_bonus
+  - webform_to_gdocs
+  - webform_workflow
+  - xmlsitemap
+
+libraries:
+
+  colorbox:
+    download:
+      type: get
+      url: https://github.com/jackmoore/colorbox/archive/1.x.zip
+    directory_name: colorbox
+    type: library
+
+  JAIL:
+    download:
+      type: git
+      url: https://github.com/sebarmeli/JAIL.git
+    directory_name: JAIL
+    type: library
+
+  openseadragon:
+    download:
+      type: get
+      url: https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.zip
+    directory_name: openseadragon
+    type: library
+
+  pdfjs:
+    download:
+      type: git
+      url: https://github.com/mozilla/pdf.js.git
+    directory_name: pdfjs
+    type: library
+
+  video-js:
+    download:
+      type: git
+      url: https://github.com/videojs/video.js.git
+    directory_name: video-js
+    type: library

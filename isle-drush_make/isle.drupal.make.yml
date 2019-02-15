@@ -1,8 +1,0 @@
-# ISLE-Drupal-Build-Tools/isle-drush_make/isle.drupal.make.yml
-#
-# This is the Drush "makefile" for building and customizing Drupal parts of the Apache container in an ISLE stack.
-#
-includes:
-  - base.drush.make.yml                            # declares core and API, builds Drupal 7.x
-  - drupal.drush.make.yml                          # standard ISLE Drupal contrib modules
-  - ../custom.d/drupal-modules.drush.make.yml      # custom Drupal contrib modules and themes

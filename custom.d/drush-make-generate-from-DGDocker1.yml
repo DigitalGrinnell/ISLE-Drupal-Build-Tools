@@ -1,0 +1,383 @@
+core: 7.x
+api: 2
+projects:
+  drupal:
+    version: '7.59'
+  views_bulk_operations:
+    subdir: contrib
+    version: '3.4'
+  announcements:
+    subdir: contrib
+    version: 1.x-dev
+  backup_migrate:
+    subdir: contrib
+    version: '3.2'
+  ctools:
+    subdir: contrib
+    version: '1.14'
+  colorbox:
+    subdir: contrib
+    version: '2.13'
+  date:
+    subdir: contrib
+    version: '2.10'
+  devel:
+    subdir: contrib
+    version: '1.6'
+  email:
+    subdir: contrib
+    version: '1.3'
+  entity:
+    subdir: contrib
+    version: '1.9'
+  google_analytics_counter:
+    subdir: contrib
+    version: '3.3'
+  google_analytics:
+    subdir: contrib
+    version: '2.4'
+  imagemagick:
+    subdir: contrib
+    version: '1.0'
+  jquery_update:
+    subdir: contrib
+    version: '2.7'
+  jw_player:
+    subdir: contrib
+    version: 2.0-beta2
+  libraries:
+    subdir: contrib
+    version: '2.3'
+  link:
+    subdir: contrib
+    version: '1.4'
+  maillog:
+    subdir: contrib
+    version: 1.0-alpha1
+  masquerade:
+    subdir: contrib
+    version: 1.0-rc7
+  pathauto:
+    subdir: contrib
+    version: '1.3'
+  phpmailer:
+    subdir: contrib
+    version: 3.0-beta4
+  r4032login:
+    subdir: contrib
+    version: '1.8'
+  token:
+    subdir: contrib
+    version: '1.7'
+  views:
+    subdir: contrib
+    version: '3.20'
+  views_bootstrap:
+    subdir: contrib
+    version: '3.2'
+  webform:
+    subdir: contrib
+    version: '4.17'
+  xmlsitemap:
+    subdir: contrib
+    version: '2.3'
+  bootstrap:
+    version: '3.20'
+  multipurpose:
+    version: '1.0'
+  nexus:
+    version: '1.3'
+  zen:
+    version: '5.5'
+  islandora_scholar:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_scholar.git'
+    'download][branch': 7.x
+    'download][revision': 76d1abf798bf9843e274db36dc68b7f18e3c2f38
+  dg7:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/DigitalGrinnell/dg7.git'
+    'download][revision': 008e858a3981a6665ef37b662a61aa2dcf25f87b
+  islandora:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora.git'
+    'download][branch': 7.x
+    'download][revision': f1d6100d142ad442e09385b126d37eb6061d3958
+  islandora_solution_pack_audio:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solution_pack_audio.git'
+    'download][branch': 7.x
+    'download][revision': d1b76cc8a9badf32eafe4f780a3a32f0b21e4683
+  islandora_bagit:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/Islandora/islandora_bagit.git'
+    'download][branch': 7.x
+    'download][revision': f61c28c75962296e0d87f391b2fc2ab4186d5d7c
+  islandora_solution_pack_collection:
+    type: module
+    custom_download: true
+  islandora_solution_pack_image:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solution_pack_image.git'
+    'download][branch': 7.x
+    'download][revision': 055e196d61f0f535a7beea016d8f04cc0a27e8fb
+  var:
+    type: module
+    custom_download: true
+  islandora_binary_object:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/discoverygarden/islandora_binary_object.git'
+    'download][branch': 7.x
+    'download][revision': 8a7bb9ed98722a9cd18cbd0733598d8093cf94c1
+  islandora_solution_pack_book:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solution_pack_book.git'
+    'download][branch': 7.x
+    'download][revision': 639d460ff2d68aefda62078ddd750a0e0b7b0cde
+  islandora_bookmark:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/Islandora/islandora_bookmark.git'
+    'download][branch': 7.x
+    'download][revision': 9c45b4afc58a30b36672faa8922f19c806d60084
+  islandora_collection_search:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/discoverygarden/islandora_collection_search'
+    'download][branch': 7.x
+    'download][revision': 05d8bc8c721bac5263d1d784ef2a99f97f53157a
+  islandora_context:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/mjordan/islandora_context.git'
+    'download][branch': 7.x
+    'download][revision': e633b81a70cece46edc1a90663a5ae8c52099a30
+  islandora_webform:
+    type: module
+    custom_download: true
+  islandora_feeds:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/mjordan/islandora_feeds.git'
+    'download][branch': 7.x
+    'download][revision': 3a2ec33439b8e28dbf97f7e56687ed6bb199ebb9
+  islandora_fits:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/islandora/islandora_fits.git'
+    'download][branch': 7.x
+    'download][revision': 5e4c3d6abbd9b3c81d18a41f62eea4b875c403ca
+  islandora_internet_archive_bookreader:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_internet_archive_bookreader.git'
+    'download][branch': 7.x-1.5
+    'download][revision': 13339d6bed5077d9e0c63885290c44578f5a1881
+  islandora_jwplayer:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/islandora/islandora_jwplayer.git'
+    'download][branch': 7.x
+    'download][revision': d5a9565c5eca1d0b3ced08feb214deff8efe99d1
+  islandora_solution_pack_large_image:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solution_pack_large_image.git'
+    'download][branch': 7.x
+    'download][revision': 0cb132b8f947dad2de5db71324ccd6d4aa60de26
+  islandora_mods_display:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/DigitalGrinnell/islandora_mods_display.git'
+    'download][revision': 08249e5a0486c28c698acb7d11db24af5c6ec63c
+  islandora_oai:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_oai.git'
+    'download][branch': 7.x
+    'download][revision': 4d302b311094f794e7f150bc758f7bb004dd7091
+  islandora_object_lock:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/discoverygarden/islandora_object_lock.git'
+    'download][branch': 7.x
+    'download][revision': f85b7463b9ab24a71dfa26d39bf298b8fa42a683
+  islandora_ocr:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_ocr.git'
+    'download][branch': 7.x
+    'download][revision': a20fde7e287ea1e42a9ff9ce673f85680a0baa98
+  islandora_openseadragon:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_openseadragon.git'
+    'download][branch': 7.x
+    'download][revision': 92c3fe05e884c9f2c0feabaa8d0488f291555f7c
+  islandora_solution_pack_oralhistories:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/DigitalGrinnell/islandora_solution_pack_oralhistories.git'
+    'download][branch': 'Issue-#94'
+    'download][revision': a1755046dcb1d59a92e27d10c6e5588a23a5afc2
+  islandora_paged_content:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_paged_content.git'
+    'download][branch': 7.x
+    'download][revision': 0c45c9e523fbb7df99d2c1754730b52b8a13c83b
+  islandora_solution_pack_pdf:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solution_pack_pdf.git'
+    'download][branch': 7.x
+    'download][revision': 2911bef98dfab0cdbd977a9e9821e8f822bde4a6
+  islandora_pdfjs_reader:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/nhart/islandora_pdfjs_reader.git'
+    'download][branch': 7.x
+    'download][revision': 2abad178527da287b78dab9c2ae0ff54959698e0
+  islandora_solr_search:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/Islandora/islandora_solr_search.git'
+    'download][branch': 7.x
+    'download][revision': 2f2a245be064662eee3ac7606c00139613a0575a
+  islandora_solr_collection_view:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/Islandora-Labs/islandora_solr_collection_view.git'
+    'download][branch': 7.x
+    'download][revision': c4b2f33251e3f46bb3bc4789480a60a8efe5d351
+  islandora_solr_facet_pages:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solr_facet_pages.git'
+    'download][branch': 7.x
+    'download][revision': edf6aaa4d3e46f7a03b48cef3ff19afab8758219
+  islandora_solr_metadata:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solr_metadata.git'
+    'download][branch': 7.x
+    'download][revision': 41939a1b22e6498d08f86397971bc6dba9b9aac1
+  islandora_solr_views:
+    type: module
+    'download][type': git
+    'download][url': 'https://github.com/Islandora/islandora_solr_views.git'
+    'download][branch': 7.x
+    'download][revision': fd1a57ea3681a63b5561d6688639f2b4b8a436c4
+  islandora_sync:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/discoverygarden/islandora_sync.git'
+    'download][branch': 7.x
+    'download][revision': 71510d35bfac3a9436c307f4a0f66cb98fa740dd
+  islandora_solution_pack_video:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solution_pack_video.git'
+    'download][branch': 7.x
+    'download][revision': 59f861fb064e9dc60c96dd26f3861a4e967851d9
+  islandora_solution_pack_web_archive:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_solution_pack_web_archive.git'
+    'download][branch': 7.x
+    'download][revision': 7d8e1f34a924978a04e54d1a800ac1b52b0df9df
+  islandora_xacml_editor:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/islandora_xacml_editor.git'
+    'download][branch': 7.x
+    'download][revision': 35c471f27b60fcca076b8614184d4590492b1816
+  islandora_xquery:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/discoverygarden/islandora_xquery.git'
+    'download][branch': 7.x
+    'download][revision': 2deb7f281c1f7afb75ffcc74a5e339b4bc8d7e55
+  objective_forms:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/objective_forms.git'
+    'download][branch': 7.x
+    'download][revision': 47e711ed5669c4f0315fb77050861e8e98965766
+  path_redirect:
+    type: module
+    'download][type': git
+    'download][url': 'https://git.drupal.org/project/path_redirect.git'
+    'download][revision': c84f4abde6006df387597ef58a0d074aded53528
+  php_lib:
+    type: module
+    'download][type': git
+    'download][url': 'git://github.com/Islandora/php_lib.git'
+    'download][branch': 7.x
+    'download][revision': bc7de5f39dbe574cc9d601107725feeb5a07c4af
+  digital_grinnell_bootstrap:
+    type: theme
+    'download][type': git
+    'download][url': 'https://github.com/DigitalGrinnell/digital_grinnell_bootstrap.git'
+    'download][revision': 6da3ab18994db0f459184bb08b0a386370328a3b
+libraries:
+  PHPExcel:
+    directory_name: PHPExcel
+    custom_download: true
+    type: library
+  bookreader:
+    directory_name: bookreader
+    custom_download: true
+    type: library
+  ckeditor:
+    directory_name: ckeditor
+    custom_download: true
+    type: library
+  colorbox:
+    directory_name: colorbox
+    custom_download: true
+    type: library
+  geshi:
+    directory_name: geshi
+    custom_download: true
+    type: library
+  glip:
+    directory_name: glip
+    custom_download: true
+    type: library
+  jwplayer:
+    directory_name: jwplayer
+    custom_download: true
+    type: library
+  nicedit:
+    directory_name: nicedit
+    custom_download: true
+    type: library
+  openseadragon:
+    directory_name: openseadragon
+    custom_download: true
+    type: library
+  pdfjs:
+    directory_name: pdfjs
+    custom_download: true
+    type: library
+  phpmailer:
+    directory_name: phpmailer
+    custom_download: true
+    type: library
+  tuque:
+    directory_name: tuque
+    custom_download: true
+    type: library
+  video-js:
+    directory_name: video-js
+    custom_download: true
+    type: library

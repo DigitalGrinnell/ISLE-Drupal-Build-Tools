@@ -1,0 +1,66 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/custom.drupal.drush.make.yml
+#
+# This is the Drush "makefile" for building adding CUSTOM Drupal contributed parts (modules and libraries) to the
+# Apache container in an ISLE stack.
+#
+# Important!  Since the projects here all use the default options, and reqiure no options of their own, it
+#   is acceptable to list them with the following syntax:
+#
+#   projects:
+#     - project-name
+#     - project-name
+#
+#   However, if options that do NOT match the defaults are required, the list elements should must be declared like:
+#
+#   projects:
+#     project-name:
+#       download:
+#         url: https://path-to-project-repo
+#         type: git (or 'get' in the case of non-git repopositories)
+#       type: module (or theme, or library)
+#
+# This is a YAML file... indentation is critical, so don't screw it up!
+#
+# Projects are listed in ALPHABETICAL order.  Please maintain the order and use trailing comments as necessary.
+#
+core: 7.x   # Required
+api: 2      # Required
+
+# Do NOT declare defaults: here!
+# This makefile is included after the STOCK makefile, where defaults are properly declared.  Defaults here would only get in the way!
+
+projects:
+  - announcements
+  - backup_migrate
+  - email
+  - google_analytics_counter
+  - jw_player
+  - ldap
+  - maillog
+  - markdown
+  - masquerade
+  - phpmailer
+  - r4032login
+  - views_bootstrap
+
+  dg7:                 # Custom module added 7-Dec-2018
+    type: module
+    subdir: custom
+    download:
+      type: git
+      url: https://github.com/DigitalGrinnell/dg7.git
+      branch: master
+
+  bootstrap:           # Bootstrap theme added for subtheme, below, on 4-Jan-2019
+    type: theme
+    download:
+      type: git
+      url: https://github.com/drupalprojects/bootstrap.git
+      branch: 7.x-3.x
+
+  digital_grinnell_bootstrap:    # Custom theme added 7-Dec-2018; updated 4-Jan-2019
+    type: theme
+    download:
+      type: git
+      url: https://github.com/DigitalGrinnell/digital_grinnell_bootstrap.git
+      branch: master

@@ -1,0 +1,12 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/isle-drupal-core.yml
+#
+# This is the Drush "makefile" for building a STOCK Drupal site in the Apache container in an ISLE stack.
+#
+# This is a YAML file... indentation is critical, so don't screw it up!
+#
+core: 7.x   # Required
+api: 2      # Required
+
+projects:
+  drupal:
+    version: 7.64    # see https://www.drupal.org/project/drupal/releases?api_version%5B%5D=103 for releases

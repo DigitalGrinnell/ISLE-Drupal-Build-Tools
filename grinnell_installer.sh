@@ -15,14 +15,16 @@
 # Composer will be next, but the files commited here are a direct lift of Mark's build tools from the Alpha.
 # Thank you, @McFateM!
 #
+echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
+drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-core.yml /tmp/drupal_install
 
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
 # drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal.drush.make /tmp/drupal_install
-drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/isle.drupal.make.yml /tmp/drupal_install
+drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-modules.yml /tmp/drupal_install
 
 echo "Using Islandora makefile for Islandora modules for sample Drupal site within /tmp/drupal_install"
 # drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora.drush.make /tmp/drupal_install
-drush --verbose make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/isle.islandora.make.yml /tmp/drupal_install
+drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-modules.yml /tmp/drupal_install
 
 # @TODO pass by var
 echo "Update settings.php with ISLE default"
@@ -34,12 +36,12 @@ echo "SetEnvIf X-Forwarded-Proto https HTTPS=on" | tee -a /tmp/drupal_install/.h
 echo "Copying Islandora Installation..."
 rsync -r --delete --chown=islandora:www-data /tmp/drupal_install/ /var/www/html
 
-echo "Installing all Islandora modules"
+echo "Checking that ../sites/all/modules exists"
 cd /var/www/html/sites/all/modules || exit
 
 ## Site install
 echo "Installing Drupal Site"
-drush site-install -y --account-name=$DRUPAL_ADMIN_USER --account-pass=$DRUPAL_ADMIN_PASS --account-mail=$DRUPAL_ADMIN_EMAIL --site-name=$DRUPAL_SITE_NAME
+drush site-install standard install_configure_form.update_status_module='array(FALSE,FALSE)' -y --account-name=$DRUPAL_ADMIN_USER --account-pass=$DRUPAL_ADMIN_PASS --account-mail=$DRUPAL_ADMIN_EMAIL --site-name=$DRUPAL_SITE_NAME install_configure_form.update_status_module='array(FALSE,FALSE)'
 
 ## Drush vset of all settings
 echo "Drush vset of Drupal Site configurations"

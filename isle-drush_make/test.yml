@@ -1,0 +1,31 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/islandora.drush.make.yml
+#
+# This is the Drush "makefile" for building STOCK Islandora parts (modules and libraries) of the
+# Apache container in an ISLE stack.
+#
+# Important!  Since each project has a different URL it is imperative that each has a download: url:value option.
+#   Therefore, each project here should be declared with the following syntax:
+#
+#   projects:
+#     project-name:
+#       download:
+#         url: https://path-to-project-repo
+#
+# This is a YAML file... indentation is critical, so don't screw it up!
+#
+core: 7.x    # Required
+api: 2       # Required
+
+defaults:    # Declaring defaults here
+  projects:
+    type: module
+    download:
+      type: git
+      overwrite: TRUE
+      branch: 7.x-1.12
+    subdir: islandora
+
+projects:
+  islandora:
+    download:
+      url: https://github.com/Islandora/islandora.git

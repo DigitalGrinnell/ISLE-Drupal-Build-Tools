@@ -1,11 +1,36 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/custom.islandora.drush.make.yml
+#
+# This is the Drush "makefile" for building adding CUSTOM Islandora contributed parts (modules and libraries) to the
+# Apache container in an ISLE stack.
+#
+# Important!  Since each project has a different URL it is imperative that each has a download: url:value option.
+#   Therefore, each project here should be declared with the following syntax:
+#
+#   projects:
+#     project-name:
+#       download:
+#         url: https://path-to-project-repo
+#
+# This is a YAML file... indentation is critical, so don't screw it up!
+#
+# Projects are listed in ALPHABETICAL order.  Please maintain the order and use trailing comments as necessary.
+#
+
+# Do NOT declare defaults: here!
+# This makefile is included after the STOCK makefile, where defaults are properly declared.  Defaults here would only get in the way!
+
 projects:
-  - islandora_multi_importer
+
+  islandora_multi_importer:
+    type: module
     download:
-      url: http://github.com/mnylc/islandora_multi_importer
+      type: git
+      url: https://github.com/mnylc/islandora_multi_importer
       branch: master
-  - islandora_solution_pack_oralhistories
+
+  islandora_solution_pack_oralhistories:
     download:
-      url: http://github.com/Islandora-Labs/islandora_solution_pack_oralhistories
+      url: https://github.com/Islandora-Labs/islandora_solution_pack_oralhistories
       branch: 7.x
 
 
