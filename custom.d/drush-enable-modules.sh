@@ -3,10 +3,10 @@
 # ./ISLE-Drupal-Build-Tools/custom.d/drush-enable-modules.sh
 #
 # This file contains a list of 'drush -y -u 1 en...' commands used to enable modules that were included in
-# ./custom.d/drupal-modules.yml and ./custom.d/islandora-modules.yml
+# ./custom.d/drupal-contrib.yml and ./custom.d/islandora-contrib.yml
 #
 
-# MAM addtions for DG-specific Drupal modules.  See .custom.d/drupal-modules.yml
+# MAM addtions for DG-specific Drupal modules.  See .custom.d/drupal-contrib.yml
 drush -y -u 1 en announcements
 drush -y -u 1 en backup_migrate
 # drush -y -u 1 en digital_grinnell_theme
@@ -17,16 +17,16 @@ drush -y -u 1 en email
 drush -y -u 1 en google_analytics_counter
 # drush -y -u 1 en google_analytics_report
 # drush -y -u 1 en google_analytics_report_api
-drush -y -u 1 en imagemagick_advanced
+# drush -y -u 1 en imagemagick_advanced           # not found?
 # drush -y -u 1 en jw_player
-drush -y -u 1 en ldap_authentication
-drush -y -u 1 en ldap_authorization_drupal_role
-drush -y -u 1 en ldap_authorization
-drush -y -u 1 en ldap_help
-drush -y -u 1 en ldap_query
-drush -y -u 1 en ldap_servers
-drush -y -u 1 en ldap_test
-drush -y -u 1 en ldap_user
+# drush -y -u 1 en ldap_authentication
+# drush -y -u 1 en ldap_authorization_drupal_role
+# drush -y -u 1 en ldap_authorization
+# drush -y -u 1 en ldap_help
+# drush -y -u 1 en ldap_query
+# drush -y -u 1 en ldap_servers
+# drush -y -u 1 en ldap_test
+# drush -y -u 1 en ldap_user
 drush -y -u 1 en maillog
 drush -y -u 1 en masquerade
 # drush -y -u 1 en phpmailer

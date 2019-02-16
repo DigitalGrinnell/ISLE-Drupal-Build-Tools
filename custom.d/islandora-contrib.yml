@@ -1,7 +1,15 @@
-# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/custom.islandora.drush.make.yml
+# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/islandora-contrib.yml
 #
 # This is the Drush "makefile" for building adding CUSTOM Islandora contributed parts (modules and libraries) to the
 # Apache container in an ISLE stack.
+#
+# Note: If you have a working version of ISLE consider opening a terminal into the Apache container, and run
+#   the following to generate a YAML-formatted makefile (make.yml in the example command below) that can be
+#   used to verify or modify this file:
+#
+#    docker exec -it isle-apache-{SHORT_NAME} bash
+#    cd /var/www/html/sites/default
+#    drush -u 1 make-generate > make.yml
 #
 # Important!  Since each project has a different URL it is imperative that each has a download: url:value option.
 #   Therefore, each project here should be declared with the following syntax:
@@ -15,9 +23,18 @@
 #
 # Projects are listed in ALPHABETICAL order.  Please maintain the order and use trailing comments as necessary.
 #
+core: 7.x   # Required
+api: 2      # Required
 
-# Do NOT declare defaults: here!
-# This makefile is included after the STOCK makefile, where defaults are properly declared.  Defaults here would only get in the way!
+defaults:    # Declaring defaults here
+
+  projects:
+    type: module
+    download:
+      type: git
+      overwrite: TRUE
+      branch: 7.x-1.12
+    subdir: islandora
 
 projects:
 

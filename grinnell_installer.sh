@@ -15,68 +15,120 @@
 # Composer will be next, but the files commited here are a direct lift of Mark's build tools from the Alpha.
 # Thank you, @McFateM!
 #
-echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
+
+# Make the output pretty, if possible.
+#   Check if stdout is a terminal...
+if test -t 1; then
+
+    # See if it supports colors...
+    ncolors=$(tput colors)
+
+    if test -n "$ncolors" && test $ncolors -ge 8; then
+        bold="$(tput bold)"
+        underline="$(tput smul)"
+        standout="$(tput smso)"
+        normal="$(tput sgr0)"
+        black="$(tput setaf 0)"
+        red="$(tput setaf 1)"
+        green="$(tput setaf 2)"
+        yellow="$(tput setaf 3)"
+        blue="$(tput setaf 4)"
+        magenta="$(tput setaf 5)"
+        cyan="$(tput setaf 6)"
+        white="$(tput setaf 7)"
+    fi
+fi
+
+# Ok, let's roll.
+
+# Stock Drupal core
+echo "${blue}Using Drush makefile ./isle-drush_make/drupal-core.yml to create a bare Drupal site within /tmp/drupal_install${normal}"
 drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-core.yml /tmp/drupal_install
 
-echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
-# drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal.drush.make /tmp/drupal_install
-drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-modules.yml /tmp/drupal_install
+# Stock Drupal contrib modules
+echo "${blue}Using Drush makefile ./isle-drush_make/drupal-contrib.yml to add STOCK Drupal CONTRIB components to the /tmp/drupal_install site${normal}"
+drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-contrib.yml /tmp/drupal_install
 
-echo "Using Islandora makefile for Islandora modules for sample Drupal site within /tmp/drupal_install"
-# drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora.drush.make /tmp/drupal_install
-drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-modules.yml /tmp/drupal_install
+# Custom Drupal contrib modules
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml ]; then
+  echo "${blue}Using Drush makefile ./custom.d/drupal-contrib.yml to add CUSTOM contrib Drupal components to the /tmp/drupal_install site${normal}"
+  drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml /tmp/drupal_install
+fi
+
+# Custom Drupal CUSTOM modules
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml ]; then
+  echo "${blue}Using Drush makefile ./custom.d/drupal-custom.yml to add CUSTOM non-contrib Drupal components to the /tmp/drupal_install site${normal}"
+  drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml /tmp/drupal_install
+fi
+
+# Stock Islandora contrib modules
+echo "${blue}Using Drush makefile ./isle-drush_make/islandora-contrib.yml to add STOCK Islandora components to the /tmp/drupal_install site${normal}"
+drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml /tmp/drupal_install
+
+# Custom Islandora contrib modules
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml ]; then
+  echo "${blue}Using Drush makefile ./custom.d/islandora-contrib.yml to add CUSTOM Islandora components to the /tmp/drupal_install site${normal}"
+  drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml /tmp/drupal_install
+fi
+
+# Custom Islandora non-contrib modules
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/islandora-custom.yml ]; then
+  echo "${blue}Using Drush makefile ./custom.d/islandora-custom.yml to add CUSTOM non-contrib Islandora components to the /tmp/drupal_install site${normal}"
+  drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/islandora-custom.yml /tmp/drupal_install
+fi
 
 # @TODO pass by var
-echo "Update settings.php with ISLE default"
+echo "${blue}Update settings.php with ISLE default${normal}"
 cp -fv /utility-scripts/isle_drupal_build_tools/isle-drush_make/settings.php /tmp/drupal_install/sites/default/settings.php
 
 # Respond with HTTPS if front-end proxy is using HTTPS.
 echo "SetEnvIf X-Forwarded-Proto https HTTPS=on" | tee -a /tmp/drupal_install/.htaccess
 
-echo "Copying Islandora Installation..."
+echo "${blue}Copying Islandora installation...${normal}"
 rsync -r --delete --chown=islandora:www-data /tmp/drupal_install/ /var/www/html
 
-echo "Checking that ../sites/all/modules exists"
+echo "${blue}Checking that ../sites/all/modules exists${normal}"
 cd /var/www/html/sites/all/modules || exit
 
 ## Site install
-echo "Installing Drupal Site"
+echo "${blue}Installing the Drupal site${normal}"
 drush site-install standard install_configure_form.update_status_module='array(FALSE,FALSE)' -y --account-name=$DRUPAL_ADMIN_USER --account-pass=$DRUPAL_ADMIN_PASS --account-mail=$DRUPAL_ADMIN_EMAIL --site-name=$DRUPAL_SITE_NAME install_configure_form.update_status_module='array(FALSE,FALSE)'
 
 ## Drush vset of all settings
-echo "Drush vset of STOCK Drupal Site configurations"
-source ./drush-vset.sh
+echo "${blue}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations${normal}"
+source /utility-scripts/isle_drupal_build_tools/drush-vset.sh
 
-echo "Running custom.d/drush-enable-modules.sh"
-source ../custom.d/drush-enable-modules.sh
+echo "${blue}Running ./custom.d/drush-enable-modules.sh to enable (drush en) CUSTOM modules${normal}"
+source /utility-scripts/isle_drupal_build_tools/custom.d/drush-enable-modules.sh
 
-echo "Drush vset of CUSTOM Drupal Site configurations"
-source ./custom.d/drush-vset.sh
+echo "${blue}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations${normal}"
+source /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
 
 # Due to Islandora Paged Content Module install hook, the islandora_paged_content_gs variable is overwritten by the install / enabling of the module back to /usr/bin/gs
-echo "Rerunning drush vset to ensure that Ghostscript works for the PDF DERIVATIVE SETTINGS"
+echo "${blue}Rerunning drush vset to ensure that Ghostscript works for the PDF DERIVATIVE SETTINGS${normal}"
 drush -u 1 -y vset islandora_paged_content_gs "/usr/bin/gs"
 
-echo "Re-running the islandora_video_mp4_audio_codec vset!"
+echo "${blue}Re-running the islandora_video_mp4_audio_codec vset!${normal}"
 drush @sites -u 1 -y vset islandora_video_mp4_audio_codec "aac"
 
-echo "Enable module script finished!"
+echo "${cyan}Enable module script finished!${normal}"
 
-## Enable repo access to anonymous users.
+echo "${blue}Enable repo access to anonymous users.${normal}"
 drush rap 'anonymous user' 'view fedora repository objects'
 
 # Fix site directory permissions
-echo "Running fix-permissions script"
+echo "${blue}Running fix-permissions script${normal}"
 /bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 
 ## Cron job setup
-echo "Configuring cron job to run every 3 hours"
+echo "${blue}Configuring cron job to run every 3 hours${normal}"
 echo "0 */3 * * * su -s /bin/bash www-data -c 'drush cron -u 1 --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
 crontab crondrupal
 rm crondrupal
 
 ## Clearing caches
-echo 'Clearing Drupal Caches.'
+echo "${blue}Clearing Drupal caches${normal}"
 su -s /bin/bash www-data -c 'drush -u 1 cc all'
 
+echo "${cyan}The installer is done!${normal}"
 exit

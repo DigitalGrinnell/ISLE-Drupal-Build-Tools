@@ -1,16 +1,22 @@
-# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/custom.drupal.drush.make.yml
+# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/drupal-custom.yml
 #
-# This is the Drush "makefile" for building adding CUSTOM Drupal contributed parts (modules and libraries) to the
-# Apache container in an ISLE stack.
+# This is the Drush "makefile" for building adding CUSTOM Drupal parts (modules and libraries) that
+# CANNOT be listed in the format:
 #
-# Important!  Since the projects here all use the default options, and reqiure no options of their own, it
-#   is acceptable to list them with the following syntax:
+#    projects:
+#      - project-name
+#      - next-project
 #
-#   projects:
-#     - project-name
-#     - project-name
+# Note: If you have a working version of ISLE consider opening a terminal into the Apache container, and run
+#   the following to generate a YAML-formatted makefile (make.yml in the example command below) that can be
+#   used to verify or modify this file:
 #
-#   However, if options that do NOT match the defaults are required, the list elements should must be declared like:
+#    docker exec -it isle-apache-{SHORT_NAME} bash
+#    cd /var/www/html/sites/default
+#    drush -u 1 make-generate > make.yml
+#
+# Important!  Since the projects here do NOT use the default options, and reqiure no options of their own, so
+#   they must be listed in the following syntax:
 #
 #   projects:
 #     project-name:
@@ -26,41 +32,30 @@
 core: 7.x   # Required
 api: 2      # Required
 
-# Do NOT declare defaults: here!
-# This makefile is included after the STOCK makefile, where defaults are properly declared.  Defaults here would only get in the way!
+defaults:    # Declaring defaults here
 
-projects:
-  - announcements
-  - backup_migrate
-  - email
-  - google_analytics_counter
-  - jw_player
-  - ldap
-  - maillog
-  - markdown
-  - masquerade
-  - phpmailer
-  - r4032login
-  - views_bootstrap
-
-  dg7:                 # Custom module added 7-Dec-2018
+  projects:
     type: module
-    subdir: custom
     download:
       type: git
+      overwrite: TRUE
+    subdir: custom
+
+projects:
+
+  dg7:                 # Custom module added 7-Dec-2018
+    download:
       url: https://github.com/DigitalGrinnell/dg7.git
       branch: master
 
   bootstrap:           # Bootstrap theme added for subtheme, below, on 4-Jan-2019
     type: theme
     download:
-      type: git
       url: https://github.com/drupalprojects/bootstrap.git
       branch: 7.x-3.x
 
   digital_grinnell_bootstrap:    # Custom theme added 7-Dec-2018; updated 4-Jan-2019
     type: theme
     download:
-      type: git
       url: https://github.com/DigitalGrinnell/digital_grinnell_bootstrap.git
       branch: master

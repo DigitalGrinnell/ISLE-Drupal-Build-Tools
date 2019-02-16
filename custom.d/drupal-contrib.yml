@@ -1,0 +1,87 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/drupal-contrib.yml
+#
+# This is the Drush "makefile" for building adding CUSTOM Drupal CONTRIB parts (modules and libraries) to the
+# Apache container in an ISLE stack.
+#
+# Note: If you have a working version of ISLE consider opening a terminal into the Apache container, and run
+#   the following to generate a YAML-formatted makefile (make.yml in the example command below) that can be
+#   used to verify or modify this file:
+#
+#    docker exec -it isle-apache-{SHORT_NAME} bash
+#    cd /var/www/html/sites/default
+#    drush -u 1 make-generate > make.yml
+#
+# Important!  Since the projects here all use the default options, and reqiure no options of their own, it
+#   is acceptable to list them with the following syntax:
+#
+#   projects:
+#     - project-name
+#     - project-name
+#
+#   However, if options that do NOT match the defaults are required, the list elements should be declared like:
+#
+#   projects:
+#     project-name:
+#       download:
+#         url: https://path-to-project-repo
+#         type: git (or 'get' in the case of non-git repopositories)
+#       type: module (or theme, or library)
+#
+# NEVER mix one form with the other.  So, don't do this...
+#
+#   projects:
+#     - project-name
+#     next-project:
+#
+# This is a YAML file... indentation is critical, so don't screw it up!
+#
+# Projects are listed in ALPHABETICAL order.  Please maintain the order and use trailing comments as necessary.
+#
+core: 7.x   # Required
+api: 2      # Required
+
+defaults:    # Declaring defaults here
+
+  projects:
+    type: module
+    download:
+      type: git
+      overwrite: TRUE
+    subdir: contrib
+
+projects:
+
+  announcements:
+  backup_migrate:
+  email:
+  google_analytics_counter:
+  jw_player:
+  ldap:
+  maillog:
+  markdown:
+  masquerade:
+  phpmailer:
+  r4032login:
+  views_bootstrap:
+
+  dg7:                 # Custom module added 7-Dec-2018
+    type: module
+    subdir: custom
+    download:
+      type: git
+      url: https://github.com/DigitalGrinnell/dg7.git
+      branch: master
+
+  bootstrap:           # Bootstrap theme added for subtheme, below, on 4-Jan-2019
+    type: theme
+    download:
+      type: git
+      url: https://github.com/drupalprojects/bootstrap.git
+      branch: 7.x-3.x
+
+  digital_grinnell_bootstrap:    # Custom theme added 7-Dec-2018; updated 4-Jan-2019
+    type: theme
+    download:
+      type: git
+      url: https://github.com/DigitalGrinnell/digital_grinnell_bootstrap.git
+      branch: master

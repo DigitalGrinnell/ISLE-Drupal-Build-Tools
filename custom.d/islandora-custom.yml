@@ -1,0 +1,54 @@
+# ISLE-Drupal-Build-Tools/isle-drush_make/custom.d/islandora-custom.yml
+#
+# This is the Drush "makefile" for building adding CUSTOM Drupal parts (modules and libraries) that
+# CANNOT be listed in the format:
+#
+#    projects:
+#      - project-name
+#      - next-project
+#
+# Note: If you have a working version of ISLE consider opening a terminal into the Apache container, and run
+#   the following to generate a YAML-formatted makefile (make.yml in the example command below) that can be
+#   used to verify or modify this file:
+#
+#    docker exec -it isle-apache-{SHORT_NAME} bash
+#    cd /var/www/html/sites/default
+#    drush -u 1 make-generate > make.yml
+#
+# Important!  Since the projects here do NOT use the default options, and reqiure no options of their own, so
+#   they must be listed in the following syntax:
+#
+#   projects:
+#     project-name:
+#       download:
+#         url: https://path-to-project-repo
+#         type: git (or 'get' in the case of non-git repopositories)
+#       type: module (or theme, or library)
+#
+# This is a YAML file... indentation is critical, so don't screw it up!
+#
+# Projects are listed in ALPHABETICAL order.  Please maintain the order and use trailing comments as necessary.
+#
+core: 7.x   # Required
+api: 2      # Required
+
+defaults:    # Declaring defaults here
+
+  projects:
+    type: module
+    download:
+      type: git
+      overwrite: TRUE
+    subdir: islandora
+
+projects:
+
+  islandora_mods_display:
+    download:
+      url: https://github.com/Digital.Grinnell/islandora_mods_display.git
+      branch: master
+
+  islandora_multi_importer:
+    download:
+      url: https://github.com/mnylc/islandora_multi_importer.git
+      branch: master
