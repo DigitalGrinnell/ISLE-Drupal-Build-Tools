@@ -11,7 +11,7 @@ echo "Enabling all Drupal modules.  It's critical that dependencies come first!"
 drush -y -u 1 en ctools --skip
 drush -y -u 1 en imagemagick --skip
 drush -y -u 1 en token --skip
-drush -y -u 1 en colorbox --skip
+# drush -y -u 1 en colorbox --skip      Is this absolultely necessary?  It's an installation nightmare.
 drush -y -u 1 en webform --skip
 
 echo "Clearing the Drupal caches to make sure latest changes are accounted for."
@@ -20,9 +20,9 @@ drush -y -u 1 cc all
 echo "Enabling all Drupal modules.  Now the rest of the contrib/non-custom, Islandora modules first."
 drush -y -u 1 en php_lib --skip
 drush -y -u 1 en islandora  --skip
-sleep 30s  #wait 30 seconds
+sleep 60s  #wait 60 seconds
 drush -y -u 1 en islandora_basic_collection  --skip
-sleep 30s  #wait 30 seconds
+sleep 60s  #wait 60 seconds
 drush -y -u 1 en objective_forms  --skip
 drush -y -u 1 en islandora_solr  --skip
 drush -y -u 1 en islandora_solr_metadata  --skip
