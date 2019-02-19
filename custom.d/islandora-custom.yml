@@ -45,7 +45,7 @@ projects:
 
   islandora_mods_display:
     download:
-      url: https://github.com/Digital.Grinnell/islandora_mods_display.git
+      url: https://github.com/DigitalGrinnell/islandora_mods_display.git
       branch: master
 
   islandora_multi_importer:

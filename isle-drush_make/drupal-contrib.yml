@@ -42,13 +42,14 @@ defaults:    # Declaring defaults here
     download:
       type: git
       overwrite: TRUE
+#     version: 7.x
     subdir: contrib
 
 projects:
 
   - admin_menu
-  - ctools
-  - colorbox
+  # - ctools      # Auto-loaded later
+  # - colorbox    # Auto-loaded later
   - date
   - datepicker
   - devel
@@ -59,7 +60,7 @@ projects:
   - features_extra
   - features
   - google_analytics
-  - imagemagick
+  # - imagemagick    # Auto-loaded by islandora_pdf
   - libraries
   - link
   - nodequeue
@@ -67,11 +68,11 @@ projects:
   - rules
   - stage_file_proxy
   - strongarm
-  - token
+  # - token          # Auto-loaded by islandora_pathauto
   - views
   - views_bulk_operations
   - views_slideshow
-  - webform
+  # - webform        # Auto-loaded later
   - webform_ajax
   - webform_bonus
   - webform_to_gdocs

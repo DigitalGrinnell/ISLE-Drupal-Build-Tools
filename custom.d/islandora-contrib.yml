@@ -48,19 +48,10 @@ projects:
       url: https://github.com/discoverygarden/islandora_collection_search.git
       branch: 7.x
 
-  islandora_mods_display:
-    download:
-      url: https://github.com/Islandora/islandora_mods_display.git
-      branch: master
-
-  islandora_multi_importer:
-    download:
-      url: https://github.com/mnylc/islandora_multi_importer.git
-      branch: master
-
   islandora_pdfjs_reader:
     download:
-      url: https://github.com/Islandora/islandora_pdfjs_reader.git
+      url: https://github.com/rosiel/islandora_pdfjs_reader.git
+      branch: 7.x
 
   islandora_solr_collection_view:
     download:

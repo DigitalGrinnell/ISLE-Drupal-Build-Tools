@@ -7,80 +7,90 @@
 #
 
 ## Enable all modules
-echo "Enabling all Drupal modules, Islandora modules first"
+echo "Enabling all Drupal modules.  It's critical that dependencies come first!"
+drush -y -u 1 en ctools --skip
+drush -y -u 1 en imagemagick --skip
+drush -y -u 1 en token --skip
+drush -y -u 1 en colorbox --skip
+drush -y -u 1 en webform --skip
 
-drush -y -u 1 en php_lib
-drush -y -u 1 en islandora
-sleep 10s #wait 10 seconds
-drush -y -u 1 en islandora_basic_collection
-sleep 10s #wait 10 seconds
-drush -y -u 1 en objective_forms
-drush -y -u 1 en islandora_solr
-drush -y -u 1 en islandora_solr_metadata
-drush -y -u 1 en islandora_solr_facet_pages
-drush -y -u 1 en islandora_solr_views
-drush -y -u 1 en islandora_pdf
-drush -y -u 1 en islandora_audio
-drush -y -u 1 en islandora_book
-drush -y -u 1 en islandora_compound_object
-drush -y -u 1 en islandora_disk_image
-drush -y -u 1 en islandora_entities
-drush -y -u 1 en islandora_entities_csv_import
-drush -y -u 1 en islandora_basic_image
-drush -y -u 1 en islandora_large_image
-drush -y -u 1 en islandora_newspaper
-drush -y -u 1 en islandora_video
-drush -y -u 1 en islandora_web_archive
-drush -y -u 1 en islandora_premis
-drush -y -u 1 en islandora_checksum
-drush -y -u 1 en islandora_checksum_checker
-drush -y -u 1 en islandora_book_batch
-drush -y -u 1 en islandora_pathauto
-drush -y -u 1 en islandora_pdfjs
-drush -y -u 1 en islandora_videojs
-drush -y -u 1 en xml_forms
+echo "Clearing the Drupal caches to make sure latest changes are accounted for."
+drush -y -u 1 cc all
+
+echo "Enabling all Drupal modules.  Now the rest of the contrib/non-custom, Islandora modules first."
+drush -y -u 1 en php_lib --skip
+drush -y -u 1 en islandora  --skip
+sleep 30s  #wait 30 seconds
+drush -y -u 1 en islandora_basic_collection  --skip
+sleep 30s  #wait 30 seconds
+drush -y -u 1 en objective_forms  --skip
+drush -y -u 1 en islandora_solr  --skip
+drush -y -u 1 en islandora_solr_metadata  --skip
+drush -y -u 1 en islandora_solr_facet_pages  --skip
+drush -y -u 1 en islandora_solr_views  --skip
+drush -y -u 1 en islandora_pdf  --skip
+drush -y -u 1 en islandora_audio  --skip
+drush -y -u 1 en islandora_book  --skip
+drush -y -u 1 en islandora_compound_object  --skip
+drush -y -u 1 en islandora_disk_image  --skip
+drush -y -u 1 en islandora_entities  --skip
+drush -y -u 1 en islandora_entities_csv_import  --skip
+drush -y -u 1 en islandora_basic_image  --skip
+drush -y -u 1 en islandora_large_image  --skip
+drush -y -u 1 en islandora_newspaper  --skip
+drush -y -u 1 en islandora_video  --skip
+drush -y -u 1 en islandora_web_archive  --skip
+drush -y -u 1 en islandora_premis  --skip
+drush -y -u 1 en islandora_checksum  --skip
+drush -y -u 1 en islandora_checksum_checker  --skip
+drush -y -u 1 en islandora_book_batch  --skip
+drush -y -u 1 en islandora_pathauto  --skip
+drush -y -u 1 en islandora_pdfjs  --skip
+drush -y -u 1 en islandora_videojs  --skip
+drush -y -u 1 en xml_forms  --skip
 # drush -y -u 1 en xml_form_builder     MAM... looks like these are all implicity enabled by the line above?
 # drush -y -u 1 en xml_schema_api
 # drush -y -u 1 en xml_form_elements
 # drush -y -u 1 en xml_form_api
-drush -y -u 1 en jquery_update
-drush -y -u 1 en zip_importer
-drush -y -u 1 en islandora_basic_image
-drush -y -u 1 en islandora_bibliography
-drush -y -u 1 en islandora_compound_object
-drush -y -u 1 en islandora_google_scholar
-drush -y -u 1 en islandora_scholar_embargo
-drush -y -u 1 en islandora_solr_config
-drush -y -u 1 en citation_exporter
-drush -y -u 1 en doi_importer
-drush -y -u 1 en endnotexml_importer
-drush -y -u 1 en pmid_importer
-drush -y -u 1 en ris_importer
-drush -y -u 1 en islandora_fits
-drush -y -u 1 en islandora_ocr
-drush -y -u 1 en islandora_oai
-drush -y -u 1 en islandora_marcxml
-drush -y -u 1 en islandora_simple_workflow
-drush -y -u 1 en islandora_xacml_api
-drush -y -u 1 en islandora_xacml_editor
-drush -y -u 1 en xmlsitemap xmlsitemap_custom
-drush -y -u 1 en islandora_xmlsitemap
-drush -y -u 1 en colorbox
-drush -y -u 1 en islandora_internet_archive_bookreader
-drush -y -u 1 en islandora_bagit
-drush -y -u 1 en islandora_batch_report
-drush -y -u 1 en islandora_usage_stats
-drush -y -u 1 en islandora_form_fieldpanel
-drush -y -u 1 en islandora_altmetrics
-drush -y -u 1 en islandora_populator
-drush -y -u 1 en islandora_newspaper_batch
-drush -y -u 1 en islandora_openseadragon
-drush -y -u 1 en views_ui
-drush -y -u 1 en webform
-drush -y -u 1 en webform_ajax
-drush -y -u 1 en webform_bonus
-drush -y -u 1 en islandora_webform
-drush -y -u 1 en islandora_webform_ingest
+drush -y -u 1 en jquery_update  --skip
+drush -y -u 1 en zip_importer  --skip
+drush -y -u 1 en islandora_basic_image  --skip
+drush -y -u 1 en islandora_bibliography  --skip
+drush -y -u 1 en islandora_compound_object  --skip
+drush -y -u 1 en islandora_google_scholar  --skip
+drush -y -u 1 en islandora_scholar_embargo  --skip
+drush -y -u 1 en islandora_solr_config  --skip
+drush -y -u 1 en citation_exporter  --skip
+drush -y -u 1 en doi_importer  --skip
+drush -y -u 1 en endnotexml_importer  --skip
+drush -y -u 1 en pmid_importer  --skip
+drush -y -u 1 en ris_importer  --skip
+drush -y -u 1 en islandora_fits  --skip
+drush -y -u 1 en islandora_ocr  --skip
+drush -y -u 1 en islandora_oai  --skip
+drush -y -u 1 en islandora_marcxml  --skip
+drush -y -u 1 en islandora_simple_workflow  --skip
+drush -y -u 1 en islandora_xacml_api  --skip
+drush -y -u 1 en islandora_xacml_editor  --skip
+drush -y -u 1 en xmlsitemap xmlsitemap_custom  --skip
+drush -y -u 1 en islandora_xmlsitemap  --skip
+# drush -y -u 1 en colorbox  --skip     # done earlier
+# drush -y -u 1 en ctools  --skip       # done earlier
+drush -y -u 1 en islandora_internet_archive_bookreader  --skip
+drush -y -u 1 en islandora_bagit  --skip
+drush -y -u 1 en islandora_batch_report  --skip
+drush -y -u 1 en islandora_usage_stats  --skip
+drush -y -u 1 en islandora_form_fieldpanel  --skip
+drush -y -u 1 en islandora_altmetrics  --skip
+drush -y -u 1 en islandora_populator  --skip
+drush -y -u 1 en islandora_newspaper_batch  --skip
+drush -y -u 1 en islandora_openseadragon  --skip
+drush -y -u 1 en views_ui  --skip
+drush -y -u 1 en webform_ajax  --skip
+# drush -y -u 1 en webform_bonus  --skip     # incompatible with our Drupal version?
+drush -y -u 1 en islandora_webform  --skip
+drush -y -u 1 en islandora_webform_ingest  --skip
+
 drush openseadragon-plugin
 drush videojs-plugin
 drush pdfjs-plugin
