@@ -3,7 +3,7 @@
 # This file, grinnell_installer.sh, is intended to replace isle_islandora_installer.sh in order to populate
 # an ISLE instance with Digital.Grinnell-specific elements.  Run it like so:
 #
-#     time docker exec -it isle-apache-{SHORT_NAME} bash /utility-scripts/isle_drupal_build_tools/grinnell_installer.sh
+#     time docker exec -it isle-apache-{SHORT_NAME} bash /utility-scripts/isle_drupal_build_tools/apache_installer.sh
 #
 # instead of:
 #
@@ -160,10 +160,10 @@ rm crondrupal
 printf "${highlight}Clearing Drupal caches.${normal}"
 su -s /bin/bash www-data -c 'drush -u 1 cc all'
 
-## Custom Drupal contrib modules IF .custom.d/post-install-script.sh exists.
-if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/post-install-script.sh ]; then
-  printf "${highlight}Running ./custom.d/post-install-script.sh to finalize this CUSTOM installation.${normal}"
-  source /utility-scripts/isle_drupal_build_tools/custom.d/post-install-script.sh
+## Finalize the Apache container installation IF .custom.d/post-install-apache-script.sh exists.
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh ]; then
+  printf "${highlight}Running ./custom.d/post-install-apache-script.sh to finalize this CUSTOM installation.${normal}"
+  source /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh
 fi
 
 printf "${cyan}The installer is done!${normal}"
