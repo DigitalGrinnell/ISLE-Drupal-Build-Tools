@@ -54,6 +54,7 @@ projects:
   announcements:
   backup_migrate:
   email:
+  field_group:                  # added in support of IMI
   google_analytics_counter:
   jw_player:
   ldap:

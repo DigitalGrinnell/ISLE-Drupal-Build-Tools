@@ -41,6 +41,8 @@ if test -t 1; then
 fi
 
 # Ok, let's roll.
+date=`date`
+printf "${cyan}This is grinnell_installer.sh running ${date}.${normal}"
 
 ## Stock Drupal core
 printf "${highlight}Using Drush makefile ./isle-drush_make/drupal-core.yml to create a bare Drupal site within /tmp/drupal_install.${normal}"
@@ -50,13 +52,13 @@ drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush
 printf "${highlight}Using Drush makefile ./isle-drush_make/drupal-contrib.yml to add STOCK Drupal CONTRIB components to the /tmp/drupal_install site.${normal}"
 drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-contrib.yml /tmp/drupal_install
 
-## Custom Drupal contrib modules
+## Custom Drupal contrib modules IF .custom.d/drupal-contrib.yml exists.
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/drupal-contrib.yml to add CUSTOM contrib Drupal components to the /tmp/drupal_install site.${normal}"
   drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml /tmp/drupal_install
 fi
 
-## Custom Drupal CUSTOM modules
+## Custom Drupal CUSTOM modules IF .custom.d/drupal-custom.yml exists.
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/drupal-custom.yml to add CUSTOM non-contrib Drupal components to the /tmp/drupal_install site.${normal}"
   drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml /tmp/drupal_install
@@ -66,13 +68,13 @@ fi
 printf "${highlight}Using Drush makefile ./isle-drush_make/islandora-contrib.yml to add STOCK Islandora components to the /tmp/drupal_install site.${normal}"
 drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml /tmp/drupal_install
 
-## Custom Islandora contrib modules
+## Custom Islandora contrib modules IF .custom.d/islandora-contrib.yml exists.
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/islandora-contrib.yml to add CUSTOM Islandora components to the /tmp/drupal_install site.${normal}"
   drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml /tmp/drupal_install
 fi
 
-## Custom Islandora non-contrib modules
+## Custom Islandora non-contrib modules IF .custom.d/islandora-custom.yml exists.
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/islandora-custom.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/islandora-custom.yml to add CUSTOM non-contrib Islandora components to the /tmp/drupal_install site.${normal}"
   drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/islandora-custom.yml /tmp/drupal_install
@@ -157,6 +159,12 @@ rm crondrupal
 ## Clearing caches
 printf "${highlight}Clearing Drupal caches.${normal}"
 su -s /bin/bash www-data -c 'drush -u 1 cc all'
+
+## Custom Drupal contrib modules IF .custom.d/post-install-script.sh exists.
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/post-install-script.sh ]; then
+  printf "${highlight}Running ./custom.d/post-install-script.sh to finalize this CUSTOM installation.${normal}"
+  source /utility-scripts/isle_drupal_build_tools/custom.d/post-install-script.sh
+fi
 
 printf "${cyan}The installer is done!${normal}"
 exit

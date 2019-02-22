@@ -14,6 +14,7 @@ drush -y -u 1 en bootstrap --skip
 drush -y -u 1 en digital_grinnell_bootstrap --skip
 drush -y -u 1 en dg7 --skip
 drush -y -u 1 en email --skip
+drush -y -u 1 en field_group --skip                # for IMI
 drush -y -u 1 en google_analytics_counter --skip
 # drush -y -u 1 en google_analytics_report
 # drush -y -u 1 en google_analytics_report_api

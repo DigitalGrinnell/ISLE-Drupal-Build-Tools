@@ -50,6 +50,9 @@ projects:     # Isladora "modules" are here, and they should appear in ALPHABETI
   islandora_bookmark:
     download:
       url: https://github.com/Islandora/islandora_bookmark
+  islandora_book_batch:
+    download:
+      url: https://github.com/Islandora/islandora_book_batch
   islandora_checksum:
     download:
       url: https://github.com/Islandora/islandora_checksum
@@ -160,9 +163,9 @@ projects:     # Isladora "modules" are here, and they should appear in ALPHABETI
     download:
       url: https://github.com/Islandora-Labs/islandora_sync
       branch: 7.x
-  islandora_usage_stats:
-    download:
-      url: https://github.com/islandora/islandora_usage_stats
+  # islandora_usage_stats:   # Not recommended for use...it does not respect XACML permissions!
+  #   download:
+  #     url: https://github.com/Islandora/islandora_usage_stats
   islandora_videojs:
     download:
       url: https://github.com/Islandora/islandora_videojs

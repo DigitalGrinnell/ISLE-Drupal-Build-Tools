@@ -79,9 +79,9 @@ drush -y -u 1 en islandora_xmlsitemap  --skip
 drush -y -u 1 en islandora_internet_archive_bookreader  --skip
 drush -y -u 1 en islandora_bagit  --skip
 drush -y -u 1 en islandora_batch_report  --skip
-drush -y -u 1 en islandora_usage_stats  --skip
+# drush -y -u 1 en islandora_usage_stats  --skip    # Not recommended for use...it does not respect XACML permissions!
 drush -y -u 1 en islandora_form_fieldpanel  --skip
-drush -y -u 1 en islandora_altmetrics  --skip
+# drush -y -u 1 en islandora_altmetrics  --skip     # Deprecated
 drush -y -u 1 en islandora_populator  --skip
 drush -y -u 1 en islandora_newspaper_batch  --skip
 drush -y -u 1 en islandora_openseadragon  --skip
