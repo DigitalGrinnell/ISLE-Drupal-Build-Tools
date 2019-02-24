@@ -63,3 +63,6 @@ drush -u 1 -y vset islandora_solr_secondary_display[csv] 'csv'
 drush -u 1 -y vset islandora_solr_secondary_display[rss] 0
 
 drush -u 1 -y vset theme_default 'digital_grinnell_bootstrap'
+
+drush -u 1 -y vset islandora_namespace_restriction_enforced 1
+drush -u 1 -y vset islandora_pids_allowed 'islandora:, grinnell:, faulconer-art:, test:'

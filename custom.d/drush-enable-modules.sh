@@ -19,7 +19,7 @@ drush -y -u 1 en google_analytics_counter --skip
 # drush -y -u 1 en google_analytics_report
 # drush -y -u 1 en google_analytics_report_api
 # drush -y -u 1 en imagemagick_advanced           # not found?
-# drush -y -u 1 en jw_player
+drush -y -u 1 en jw_player
 # drush -y -u 1 en ldap_authentication
 # drush -y -u 1 en ldap_authorization_drupal_role
 # drush -y -u 1 en ldap_authorization
@@ -30,7 +30,7 @@ drush -y -u 1 en google_analytics_counter --skip
 # drush -y -u 1 en ldap_user
 drush -y -u 1 en maillog --skip
 drush -y -u 1 en masquerade  --skip
-# drush -y -u 1 en phpmailer
+drush -y -u 1 en phpmailer
 drush -y -u 1 en r4032login --skip
 drush -y -u 1 en views_bootstrap --skip
 
