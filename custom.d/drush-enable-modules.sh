@@ -33,6 +33,7 @@ drush -y -u 1 en maillog --skip
 drush -y -u 1 en masquerade  --skip
 # drush -y -u 1 en phpmailer
 drush -y -u 1 en r4032login --skip
+drush -y -u 1 en smtp --skip         # replaces PHPMailer
 drush -y -u 1 en views_bootstrap --skip
 # drush -y -u 1 en views_import --skip       # added to support views migration
 
