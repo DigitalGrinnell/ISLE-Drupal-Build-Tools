@@ -52,3 +52,8 @@ projects:
     download:
       url: https://github.com/mnylc/islandora_multi_importer.git
       branch: master
+
+  islandora_solr_views:
+    download:
+      url: https://github.com/DigitalGrinnell/islandora_solr_views.git
+      branch: Digital.Grinnell

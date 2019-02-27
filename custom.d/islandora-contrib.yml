@@ -51,7 +51,7 @@ projects:
   islandora_pdfjs_reader:
     download:
       url: https://github.com/rosiel/islandora_pdfjs_reader.git
-      branch: 7.x
+      branch: 7.x    
 
   islandora_solr_collection_view:
     download:

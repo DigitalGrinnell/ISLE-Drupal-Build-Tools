@@ -9,6 +9,7 @@
 # MAM addtions for DG-specific Drupal modules.  See .custom.d/drupal-contrib.yml
 drush -y -u 1 en announcements --skip
 drush -y -u 1 en backup_migrate --skip
+# drush -y -u 1 en block_export_import --skip     # added to support block migrations
 # drush -y -u 1 en digital_grinnell_theme
 drush -y -u 1 en bootstrap --skip
 drush -y -u 1 en digital_grinnell_bootstrap --skip
@@ -19,7 +20,7 @@ drush -y -u 1 en google_analytics_counter --skip
 # drush -y -u 1 en google_analytics_report
 # drush -y -u 1 en google_analytics_report_api
 # drush -y -u 1 en imagemagick_advanced           # not found?
-drush -y -u 1 en jw_player
+# drush -y -u 1 en jw_player     # no longer supported, use video.js
 # drush -y -u 1 en ldap_authentication
 # drush -y -u 1 en ldap_authorization_drupal_role
 # drush -y -u 1 en ldap_authorization
@@ -30,9 +31,10 @@ drush -y -u 1 en jw_player
 # drush -y -u 1 en ldap_user
 drush -y -u 1 en maillog --skip
 drush -y -u 1 en masquerade  --skip
-drush -y -u 1 en phpmailer
+# drush -y -u 1 en phpmailer
 drush -y -u 1 en r4032login --skip
 drush -y -u 1 en views_bootstrap --skip
+# drush -y -u 1 en views_import --skip       # added to support views migration
 
 # MAM addtions for DG-specific Islandora modules and Solution Packs.  See ./custom.d/islandora-modules.yml
 drush -y -u 1 en islandora_binary_object --skip

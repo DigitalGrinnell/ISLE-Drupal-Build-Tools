@@ -35,27 +35,22 @@ date=`date`
 printf ""
 printf "${cyan}This is ../custom.d/post-install-solr-script.sh running ${date}.${normal}"
 
-cd ~/ISLE-ld
 printf "${highlight}Git clone the DigtalGrinnell/RepositoryX repository.${normal}"
 git clone https://github.com/DigitalGrinnell/RepositoryX.git
 cd RepositoryX
 
-printf "${highlight}Checking the ISLE-ld branch and copy schema and solrconfig to the Solr container.${normal}"
+printf "${highlight}Checking the ISLE-ld branch and copy schema and solrconfig into the Solr container.${normal}"
 git checkout ISLE-ld
-docker cp schema.xml isle-solr-ld:/usr/local/solr/collection1/conf/schema.xml
-docker cp solrconfig.xml isle-solr-ld:/usr/local/solr/collection1/conf/solrconfig.xml
+cp schema.xml /usr/local/solr/collection1/conf/schema.xml
+cp solrconfig.xml /usr/local/solr/collection1/conf/solrconfig.xml
 
-cd ~/ISLE-ld
-printf "${highlight}Run another 'docker-compose up -d'.${normal}"
-docker-compose up -d
+printf "${highlight}Ensure proper file ownership within the Solr container.${normal}"
+chown -R tomcat:tomcat /usr/local/solr/collection1/conf
 
-printf "${highlight}Docker 'exec' in yhe Solr container to change file ownership within.${normal}"
-docker exec isle-solr-ld chown -R tomcat:tomcat /usr/local/solr/collection1/conf
-
-printf "${highlight}Stopping the Solr container and doing one more 'docker-compose up -d'.${normal}"
-docker stop isle-solr-ld
-docker-compose up -d
-
-printf ""
-printf "${cyan}post-install-solr-script.sh is done!${normal}"
-printf ""
+printf "${normal}"
+printf "${cyan}The post-install-solr-script.sh is done!${normal}"
+printf "${normal}"
+printf "${red}Please execute the following commands from the host: ${normal}"
+printf "${red}    docker stop isle-solr-ld ${normal}"
+printf "${red}    docker-compose up -d ${normal}"
+printf " "

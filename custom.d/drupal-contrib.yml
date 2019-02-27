@@ -56,33 +56,30 @@ projects:
   email:
   field_group:                  # added in support of IMI
   google_analytics_counter:
-  jw_player:
+  # jw_player:                  # no longer free and no Islandora support.  Use video.js
   ldap:
   maillog:
   markdown:
   masquerade:
-  phpmailer:
+  # phpmailer:         # just a bad idea.  Use SMTP module instead.
   r4032login:
+  smtp:                # Added in place of PHPMailer
   views_bootstrap:
 
-  dg7:                 # Custom module added 7-Dec-2018
-    type: module
-    subdir: custom
-    download:
-      type: git
-      url: https://github.com/DigitalGrinnell/dg7.git
-      branch: master
-
-  bootstrap:           # Bootstrap theme added for subtheme, below, on 4-Jan-2019
+  bootstrap:           # Bootstrap theme added for subtheme on 4-Jan-2019
     type: theme
     download:
       type: git
       url: https://github.com/drupalprojects/bootstrap.git
       branch: 7.x-3.x
+    subdir: ~
 
-  digital_grinnell_bootstrap:    # Custom theme added 7-Dec-2018; updated 4-Jan-2019
-    type: theme
-    download:
-      type: git
-      url: https://github.com/DigitalGrinnell/digital_grinnell_bootstrap.git
-      branch: master
+# libraries:
+#
+#   phpmailer:      NOT advised since it depends on 'sendmail'
+#     download:
+#       type: git
+#       url: https://github.com/PHPMailer/PHPMailer.git
+#       version: 5.2.27
+#     directory_name: phpmailer
+#     type: library

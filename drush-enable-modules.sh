@@ -91,6 +91,8 @@ drush -y -u 1 en webform_ajax  --skip
 drush -y -u 1 en islandora_webform  --skip
 drush -y -u 1 en islandora_webform_ingest  --skip
 
+drush -y -u 1 en devel --skip        # Previously missing...apparently this was an issue.
+
 drush openseadragon-plugin
 drush videojs-plugin
 drush pdfjs-plugin

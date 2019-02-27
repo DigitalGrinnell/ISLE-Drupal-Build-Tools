@@ -39,7 +39,6 @@ defaults:    # Declaring defaults here
     download:
       type: git
       overwrite: TRUE
-    subdir: custom
 
 projects:
 
@@ -47,12 +46,7 @@ projects:
     download:
       url: https://github.com/DigitalGrinnell/dg7.git
       branch: master
-
-  bootstrap:           # Bootstrap theme added for subtheme, below, on 4-Jan-2019
-    type: theme
-    download:
-      url: https://github.com/drupalprojects/bootstrap.git
-      branch: 7.x-3.x
+    subdir: islandora
 
   digital_grinnell_bootstrap:    # Custom theme added 7-Dec-2018; updated 4-Jan-2019
     type: theme

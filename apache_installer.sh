@@ -169,11 +169,14 @@ if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-sc
   source /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh
 fi
 
-## Repeat Drush vset all CUSTOM settings.
+## Repeat Drush vset of all settings
+printf "${highlight}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations.${normal}"
+source /utility-scripts/isle_drupal_build_tools/drush-vset.sh
+
+## Repeat Drush vset of all CUSTOM settings.
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
   printf "${highlight}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations.${normal}"
   source /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
 fi
 
 printf "${cyan}The installer is done!${normal}"
-exit

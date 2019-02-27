@@ -49,19 +49,27 @@ printf "${highlight}Enabling IMI using Drush.${normal}"
 cd /var/www/html/sites/default || exit
 drush -u 1 -y en islandora_multi_importer
 
-## Use 'drush bam*' to find a custom.d/*mysql.gz database dump to restore.
-printf "${highlight}Looking for the newest *mysql.gz file in ../custom.d.${normal}"
+# ## Use 'views_import' to find all custom.d/exported-from-production/imports/views files and import them via drush.
+# printf "${highlight}Looking to import any ../custom.d/exported-from-production/import/views.${normal}"
+# for file in /utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production/import/views/*.inc; do
+#   mkdir -p /var/www/html/sites/all/imports/views
+#   drush -u 1 -y vie
+# done
+
+## Use 'drush bam*' to find a custom.d/exported-from-production/*mysql.gz database dump and restore it.
+printf "${highlight}Looking for the newest *mysql.gz file in ../custom.d/exported-from-production.${normal}"
 found=0
 unset -v latest
-for file in /utility-scripts/isle_drupal_build_tools/custom.d/*mysql.gz; do
+for file in /utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production/*mysql.gz; do
   [[ $file -nt $latest ]] && latest=$file
   found=1
 done
 
 if [ ${found} -eq 0 ]; then
-  printf "${highlight}No recent databsase backup found in /utility-scripts/isle_drupal_build_tools/custom.d!${normal}"
+  printf "${highlight}No recent databsase backup found in /utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production!${normal}"
 else
   printf "Copying most recent backup ${cyan}($latest)${blue} to manual backups directory.${normal}"
+  mkdir -p /var/private/backup_migrate/manual/
   cp -f ${latest} /var/private/backup_migrate/manual/
   filename=$(basename $latest)
   printf "${highlight}Restoring from most recent backup file: ${cyan}${filename}.${normal}"
@@ -69,9 +77,9 @@ else
 fi
 
 # Set some final variables.
-# printf "${highlight}Setting some remaining custom variables.${normal}"
-# drush -u 1 -y vset islandora_namespace_restriction_enforced 1
-# drush -u 1 -y vset islandora_pids_allowed 'islandora:, grinnell:, faulconer-art:, test:'
+printf "${highlight}Setting some remaining custom variables.${normal}"
+drush -u 1 -y vset islandora_namespace_restriction_enforced 1
+drush -u 1 -y vset islandora_pids_allowed 'islandora:, grinnell:, faulconer-art:, test:'
 
 # Clear all caches
 printf "${highlight}Clearing all caches using Drush.${normal}"

@@ -52,7 +52,7 @@ projects:
   # - colorbox    # Is this absolutely necessary?  It's an installation nightmare.
   - date
   - datepicker
-  - devel
+  # - devel       # Auto-loaded later
   - entity
   - entity_view_mode
   - entityreference
