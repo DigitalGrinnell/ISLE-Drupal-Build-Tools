@@ -6,18 +6,24 @@
 # CUSTOM variables in the Drupal instance of an ISLE stack's Apache container.
 #
 
-drush -u 1 -y vset file_private_path '/var/private'
+drush -u 1 -y vset file_private_path '/var/www/private'
+
 drush -u 1 -y vset islandora_solr_advanced_search_block_lucene_regex_default '/(/+|-|&&|/|/||!|/(|/)|/{|/}|/[|/]|/^| |~|/*|/?|/:|"|/|/)/'
+
 drush -u 1 -y vset islandora_solr_advanced_search_block_lucene_syntax_escape 0
 drush -u 1 -y vset islandora_solr_allow_preserve_filters 0
 drush -u 1 -y vset islandora_solr_base_advanced 0
-drush -u 1 -y vset islandora_solr_base_filter '-RELS_EXT_hasModel_uri_mlt:/"info:fedora/islandora:pagecmodel/"/r/n-PID:/"grinnell:generic/"/r/n-PID:/"grinnell:test/"/r/n-RELS_EXT_isConstituentOf_uri_mt:*/r/n-RELS_EXT_isMemberOfCollection_uri_ms:*-suppressed'
+
+# drush -u 1 -y vset islandora_solr_base_filter "-RELS_EXT_hasModel_uri_mlt:info\:fedora/islandora\:pagecmodel\r\n-PID:grinnell\:generic\r\n-PID:grinnell\:test\r\n-RELS_EXT_isConstituentOf_uri_mt:*\r\n-RELS_EXT_isMemberOfCollection_uri_ms:*-suppressed"
+
 drush -u 1 -y vset islandora_solr_base_query '*:*'
 drush -u 1 -y vset islandora_solr_base_sort 'fgs_label_s asc'
-drush -u 1 -y vset islandora_solr_collection_search_request 'http:/isle.localdomain:8082/solr/select?q=RELS_EXT_hasModel_uri_s:(info/:fedora/islandora/:collectionCModel)&fl=PID,fgs_label_s&fq=PID:(grinnell/:*%20OR%20faulconer-art/:*)&wt=php&rows=999'
+
+drush -u 1 -y vset islandora_solr_collection_search_request "http://isle.localdomain:8082/solr/select?q=RELS_EXT_hasModel_uri_s:(info/:fedora/islandora/:collectionCModel)&fl=PID,fgs_label_s&fq=PID:(grinnell/:*%20OR%20faulconer-art/:*)&wt=php&rows=999"
+
 drush -u 1 -y vset islandora_solr_content_model_field 'RELS_EXT_hasModel_uri_ms'
 drush -u 1 -y vset islandora_solr_datastream_id_field 'fedora_datastreams_ms'
-drush -u 1 -y vset islandora_solr_debug_mode: 0
+drush -u 1 -y vset islandora_solr_debug_mode 1
 drush -u 1 -y vset islandora_solr_dismax_allowed true
 drush -u 1 -y vset islandora_solr_facet_max_limit 10
 drush -u 1 -y vset islandora_solr_facet_min_limit 1
@@ -37,6 +43,7 @@ drush -u 1 -y vset islandora_solr_object_label_field 'fgs_label_s'
 drush -u 1 -y vset islandora_solr_primary_display 'default'
 
 drush -u 1 -y vset islandora_solr_query_fields 'dc.title^5 dc.subject^2 dc.description^2 dc.creator^2 dc.contributor^1 dc.type'
+
 drush -u 1 -y vset islandora_solr_request_handler 0
 drush -u 1 -y vset islandora_solr_search_boolean user
 drush -u 1 -y vset islandora_solr_search_field_value_separator ', '
@@ -66,3 +73,25 @@ drush -u 1 -y vset theme_default 'digital_grinnell_bootstrap'
 
 drush -u 1 -y vset islandora_namespace_restriction_enforced 1
 drush -u 1 -y vset islandora_pids_allowed 'islandora:, grinnell:, faulconer-art:, test:'
+
+drush -u 1 -y vset maintenance_mode 0
+
+# Set block configurations.  Obtained from `drush block-show` command on production site.
+drush -u 1 -y block-configure --module=block --delta=1 --region=footer --weight=-24
+drush -u 1 -y block-configure --module=announcements --delta=0 --region=highlighted --weight=-24
+drush -u 1 -y block-configure --module=backup_migrate --delta=quick_backup --region=sidebar_second --weight=-18
+drush -u 1 -y block-configure --module=islandora_collection_search --delta=islandora_collection_search --region=sidebar_second --weight=-23
+ drush -u 1 -y block-configure --module=islandora_compound_object --delta=compound_navigation --region=sidebar_second --weight=-24
+ drush -u 1 -y block-configure --module=islandora_solr --delta=basic_facets --region=sidebar_second --weight=-16
+ drush -u 1 -y block-configure --module=menu --delta=devel --region=sidebar_second --weight=-19
+ drush -u 1 -y block-configure --module=system --delta=main --region=content --weight=-23
+ drush -u 1 -y block-configure --module=system --delta=navigation --region=sidebar_second --weight=-21
+ drush -u 1 -y block-configure --module=system --delta=management --region=sidebar_second --weight=-20
+ drush -u 1 -y block-configure --module=system --delta=user-menu --region=sidebar_second --weight=-22
+ drush -u 1 -y block-configure --module=user --delta=login --region=sidebar_second --weight=-17
+ drush -u 1 -y block-configure --module=user --delta=online --region=sidebar_second --weight=-15
+ drush -u 1 -y block-configure --module=views --delta=collection-block --region=content --weight=-24
+ drush -u 1 -y block-configure --module=search --delta=form --region=-1 --weight=-1
+
+# # Set islandora_solr_base_filter... Can't be done using a simple vset!
+# drush -u 1 -y sqlq "UPDATE variable SET value='-RELS_EXT_hasModel_uri_mlt:info\:fedora/islandora\:pagecmodel\r\n-PID:grinnell\:generic\r\n-PID:grinnell\:test\r\n-RELS_EXT_isConstituentOf_uri_mt:*\r\n-RELS_EXT_isMemberOfCollection_uri_ms:*-suppressed' WHERE name='islandora_solr_base_filter';" 

@@ -50,8 +50,8 @@ projects:
 
   islandora_multi_importer:
     download:
-      url: https://github.com/mnylc/islandora_multi_importer.git
-      branch: master
+      url: https://github.com/DigitalGrinnell/islandora_multi_importer.git
+      branch: issue-101
 
   islandora_solr_views:
     download:

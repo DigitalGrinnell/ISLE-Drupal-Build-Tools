@@ -93,6 +93,9 @@ drush -y -u 1 en islandora_webform_ingest  --skip
 
 drush -y -u 1 en devel --skip        # Previously missing...apparently this was an issue.
 
+drush -y -u 1 en drush_extras        # Provides some very useful Drush commands
+drush cc drush
+
 drush openseadragon-plugin
 drush videojs-plugin
 drush pdfjs-plugin

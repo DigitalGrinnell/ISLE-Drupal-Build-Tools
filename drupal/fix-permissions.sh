@@ -88,7 +88,7 @@ for x in ./*/files; do
 done
 
 printf "Changing private file path owner and permissions.../n"
-chown ${drupal_user}:${httpd_group} /var/private
-chmod 775 /var/private
+chown ${drupal_user}:${httpd_group} /var/www/private
+chmod 775 /var/www/private
 
 echo "Done setting proper permissions on files and directories"

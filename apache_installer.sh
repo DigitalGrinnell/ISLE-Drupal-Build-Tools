@@ -52,26 +52,26 @@ drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush
 printf "${highlight}Using Drush makefile ./isle-drush_make/drupal-contrib.yml to add STOCK Drupal CONTRIB components to the /tmp/drupal_install site.${normal}"
 drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-contrib.yml /tmp/drupal_install
 
+## Stock Islandora contrib modules
+printf "${highlight}Using Drush makefile ./isle-drush_make/islandora-contrib.yml to add STOCK Islandora components to the /tmp/drupal_install site.${normal}"
+drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml /tmp/drupal_install
+
 ## Custom Drupal contrib modules IF .custom.d/drupal-contrib.yml exists.
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/drupal-contrib.yml to add CUSTOM contrib Drupal components to the /tmp/drupal_install site.${normal}"
   drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml /tmp/drupal_install
 fi
 
-## Custom Drupal CUSTOM modules IF .custom.d/drupal-custom.yml exists.
-if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml ]; then
-  printf "${highlight}Using Drush makefile ./custom.d/drupal-custom.yml to add CUSTOM non-contrib Drupal components to the /tmp/drupal_install site.${normal}"
-  drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml /tmp/drupal_install
-fi
-
-## Stock Islandora contrib modules
-printf "${highlight}Using Drush makefile ./isle-drush_make/islandora-contrib.yml to add STOCK Islandora components to the /tmp/drupal_install site.${normal}"
-drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml /tmp/drupal_install
-
 ## Custom Islandora contrib modules IF .custom.d/islandora-contrib.yml exists.
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/islandora-contrib.yml to add CUSTOM Islandora components to the /tmp/drupal_install site.${normal}"
   drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml /tmp/drupal_install
+fi
+
+## Custom Drupal non-contrib modules IF .custom.d/drupal-custom.yml exists.
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml ]; then
+  printf "${highlight}Using Drush makefile ./custom.d/drupal-custom.yml to add CUSTOM non-contrib Drupal components to the /tmp/drupal_install site.${normal}"
+  drush make --no-core /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml /tmp/drupal_install
 fi
 
 ## Custom Islandora non-contrib modules IF .custom.d/islandora-custom.yml exists.
@@ -167,16 +167,16 @@ su -s /bin/bash www-data -c 'drush -u 1 cc all'
 if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh ]; then
   printf "${highlight}Running ./custom.d/post-install-apache-script.sh to finalize this CUSTOM installation.${normal}"
   source /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh
+
+  ## Repeat Drush vset of all settings, but only if a CUSTOM Apache script was run.
+  printf "${highlight}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations.${normal}"
+  source /utility-scripts/isle_drupal_build_tools/drush-vset.sh
+
+  ## Repeat Drush vset of all CUSTOM settings, but only if a CUSTOM Apache script was run.
+  if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
+    printf "${highlight}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations.${normal}"
+    source /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
+  fi
 fi
 
-## Repeat Drush vset of all settings
-printf "${highlight}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations.${normal}"
-source /utility-scripts/isle_drupal_build_tools/drush-vset.sh
-
-## Repeat Drush vset of all CUSTOM settings.
-if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
-  printf "${highlight}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations.${normal}"
-  source /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
-fi
-
-printf "${cyan}The installer is done!${normal}"
+printf "${cyan}The Apache installer is done!${normal}"

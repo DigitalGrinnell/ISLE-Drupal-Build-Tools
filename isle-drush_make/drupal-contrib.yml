@@ -48,11 +48,12 @@ defaults:    # Declaring defaults here
 projects:
 
   - admin_menu
-  # - ctools      # Auto-loaded later
-  # - colorbox    # Is this absolutely necessary?  It's an installation nightmare.
+  # - ctools        # Auto-loaded later
+  # - colorbox      # Is this absolutely necessary?  It's an installation nightmare.
   - date
   - datepicker
-  # - devel       # Auto-loaded later
+  # - devel         # Auto-loaded later
+  # - drush_extras  # Auto-loaded later
   - entity
   - entity_view_mode
   - entityreference

@@ -42,19 +42,12 @@ cd /var/www/html/sites/all/modules/islandora/islandora_multi_importer || exit
 
 # Install IMI using Composer
 printf "${highlight}Installing IMI using Composer.${normal}"
-composer install
+composer -n install
 
 # Enable IMI using Drush
 printf "${highlight}Enabling IMI using Drush.${normal}"
 cd /var/www/html/sites/default || exit
 drush -u 1 -y en islandora_multi_importer
-
-# ## Use 'views_import' to find all custom.d/exported-from-production/imports/views files and import them via drush.
-# printf "${highlight}Looking to import any ../custom.d/exported-from-production/import/views.${normal}"
-# for file in /utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production/import/views/*.inc; do
-#   mkdir -p /var/www/html/sites/all/imports/views
-#   drush -u 1 -y vie
-# done
 
 ## Use 'drush bam*' to find a custom.d/exported-from-production/*mysql.gz database dump and restore it.
 printf "${highlight}Looking for the newest *mysql.gz file in ../custom.d/exported-from-production.${normal}"
@@ -69,8 +62,8 @@ if [ ${found} -eq 0 ]; then
   printf "${highlight}No recent databsase backup found in /utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production!${normal}"
 else
   printf "Copying most recent backup ${cyan}($latest)${blue} to manual backups directory.${normal}"
-  mkdir -p /var/private/backup_migrate/manual/
-  cp -f ${latest} /var/private/backup_migrate/manual/
+  mkdir -p /var/www/private/backup_migrate/manual/
+  cp -f ${latest} /var/www/private/backup_migrate/manual/
   filename=$(basename $latest)
   printf "${highlight}Restoring from most recent backup file: ${cyan}${filename}.${normal}"
   drush bam-restore --yes db manual ${filename}
