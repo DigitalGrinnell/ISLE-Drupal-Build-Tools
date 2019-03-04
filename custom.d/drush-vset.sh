@@ -51,7 +51,7 @@ drush -u 1 -y vset islandora_solr_search_navigation 0
 drush -u 1 -y vset islandora_solr_search_truncated_field_value_separator '<br />'
 
 drush -u 1 -y vset islandora_solr_tabs__active_tab 'edit-query-defaults'
-drush -u 1 -y vset islandora_solr_url 'solr:8082/solr'
+drush -u 1 -y vset islandora_solr_url 'solr:8080/solr'
 drush -u 1 -y vset islandora_solr_use_ui_qf 0
 
 drush -u 1 -y vset islandora_solr_primary_display_table[weight][default] 0
@@ -94,4 +94,4 @@ drush -u 1 -y block-configure --module=islandora_collection_search --delta=islan
  drush -u 1 -y block-configure --module=search --delta=form --region=-1 --weight=-1
 
 # # Set islandora_solr_base_filter... Can't be done using a simple vset!
-# drush -u 1 -y sqlq "UPDATE variable SET value='-RELS_EXT_hasModel_uri_mlt:info\:fedora/islandora\:pagecmodel\r\n-PID:grinnell\:generic\r\n-PID:grinnell\:test\r\n-RELS_EXT_isConstituentOf_uri_mt:*\r\n-RELS_EXT_isMemberOfCollection_uri_ms:*-suppressed' WHERE name='islandora_solr_base_filter';" 
+# drush -u 1 -y sqlq "UPDATE variable SET value='-RELS_EXT_hasModel_uri_mlt:info\:fedora/islandora\:pagecmodel\r\n-PID:grinnell\:generic\r\n-PID:grinnell\:test\r\n-RELS_EXT_isConstituentOf_uri_mt:*\r\n-RELS_EXT_isMemberOfCollection_uri_ms:*-suppressed' WHERE name='islandora_solr_base_filter';"
