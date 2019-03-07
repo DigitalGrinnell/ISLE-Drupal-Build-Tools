@@ -46,3 +46,5 @@ drush -y -u 1 en islandora_mods_display --skip
 drush -y -u 1 en islandora_solr_collection_view --skip
 # drush -y -u 1 en islandora_solution_pack_oralhistories
 drush -y -u 1 en islandora_xslt_paths --skip
+
+drush -y -u 1 en idu --skip

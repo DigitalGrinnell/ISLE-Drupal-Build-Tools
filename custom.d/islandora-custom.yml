@@ -57,3 +57,9 @@ projects:
     download:
       url: https://github.com/DigitalGrinnell/islandora_solr_views.git
       branch: Digital.Grinnell
+
+  idu:
+    download:
+      url: https://github.com/DigitalGrinnell/idu.git
+      branch: master
+      
