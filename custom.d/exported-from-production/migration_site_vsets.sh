@@ -49,7 +49,7 @@ drush rap 'anonymous user' 'view fedora repository objects'
 
 # Fix site directory permissions
 echo "Running fix-permissions script"
-/bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
+/bin/bash /isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 
 # MAM additions for Digital Grinnell.  Updated 7-Dec-2018
 drush -u 1 -y vset theme_default digital_grinnell_theme

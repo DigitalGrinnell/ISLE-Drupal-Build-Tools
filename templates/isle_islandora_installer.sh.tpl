@@ -9,14 +9,14 @@
 #
 
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
-drush make --prepare-install /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal.drush.make /tmp/drupal_install
+drush make --prepare-install /isle_drupal_build_tools/isle-drush_make/drupal.drush.make /tmp/drupal_install
 
 echo "Using Islandora makefile for Islandora Modules for sample Drupal site within /tmp/drupal_install"
-drush make --no-core /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora.drush.make /tmp/drupal_install
+drush make --no-core /isle_drupal_build_tools/isle-drush_make/islandora.drush.make /tmp/drupal_install
 
 # @TODO pass by var
 echo "Update settings.php with ISLE default"
-cp -fv /utility-scripts/isle_drupal_build_tools/isle-drush_make/settings.php /tmp/drupal_install/sites/default/settings.php
+cp -fv /isle_drupal_build_tools/isle-drush_make/settings.php /tmp/drupal_install/sites/default/settings.php
 
 # Respond with HTTPS if front-end proxy is using HTTPS.
 echo "SetEnvIf X-Forwarded-Proto https HTTPS=on" | tee -a /tmp/drupal_install/.htaccess
@@ -161,7 +161,7 @@ drush rap 'anonymous user' 'view fedora repository objects'
 
 # Fix site directory permissions
 echo "Running fix-permissions script"
-/bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
+/bin/bash /isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 
 ## Cron job setup
 echo "Configuring cron job to run every 3 hours"

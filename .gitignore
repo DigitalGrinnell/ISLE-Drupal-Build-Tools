@@ -2,3 +2,5 @@ DISABLED/
 .DS_Store
 custom.d/.DS_Store
 objects/
+custom.d/RepositoryX/
+

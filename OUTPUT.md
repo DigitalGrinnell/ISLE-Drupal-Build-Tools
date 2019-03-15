@@ -3,15 +3,15 @@
 Raw output from my latest local spin of ISLE...
 
 ```
-Marks-Mac-Mini:ISLE-ld mark$ time docker exec -it isle-apache-ld bash /utility-scripts/isle_drupal_build_tools/apache_installer.sh
+Marks-Mac-Mini:ISLE-ld mark$ time docker exec -it isle-apache-ld bash /isle_drupal_build_tools/apache_installer.sh
 This is grinnell_installer.sh running Sat Mar  9 15:44:17 UTC 2019.
 
 Using Drush makefile ./isle-drush_make/drupal-core.yml to create a bare Drupal site within /tmp/drupal_install.
-Beginning to build /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-core.yml.                 [ok]
+Beginning to build /isle_drupal_build_tools/isle-drush_make/drupal-core.yml.                 [ok]
 drupal-7.64 downloaded.                                                                                      [ok]
 
 Using Drush makefile ./isle-drush_make/drupal-contrib.yml to add STOCK Drupal CONTRIB components to the /tmp/drupal_install site.
-Beginning to build /utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-contrib.yml.              [ok]
+Beginning to build /isle_drupal_build_tools/isle-drush_make/drupal-contrib.yml.              [ok]
 admin_menu cloned from http://git.drupal.org/project/admin_menu.git.                                         [ok]
 date cloned from http://git.drupal.org/project/date.git.                                                     [ok]
 datepicker cloned from http://git.drupal.org/project/datepicker.git.                                         [ok]
@@ -44,7 +44,7 @@ pdfjs cloned from https://github.com/mozilla/pdf.js.git.                        
 video-js cloned from https://github.com/videojs/video.js.git.                                                [ok]
 
 Using Drush makefile ./isle-drush_make/islandora-contrib.yml to add STOCK Islandora components to the /tmp/drupal_install site.
-Beginning to build /utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml.           [ok]
+Beginning to build /isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml.           [ok]
 islandora cloned from https://github.com/Islandora/islandora.                                                [ok]
 Checked out branch 7.x-1.12.                                                                                 [ok]
 islandora_bagit cloned from https://github.com/Islandora/islandora_bagit.                                    [ok]
@@ -152,12 +152,12 @@ tuque cloned from https://github.com/Islandora/tuque.                           
 Checked out branch 1.x.                                                                                      [ok]
 
 Using Drush makefile ./custom.d/drupal-contrib.yml to add CUSTOM contrib Drupal components to the /tmp/drupal_install site.
-Beginning to build /utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml.                     [ok]
+Beginning to build /isle_drupal_build_tools/custom.d/drupal-contrib.yml.                     [ok]
 bootstrap cloned from https://github.com/drupalprojects/bootstrap.git.                                       [ok]
 Checked out branch 7.x-3.x.                                                                                  [ok]
 
 Using Drush makefile ./custom.d/islandora-contrib.yml to add CUSTOM Islandora components to the /tmp/drupal_install site.
-Beginning to build /utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml.                  [ok]
+Beginning to build /isle_drupal_build_tools/custom.d/islandora-contrib.yml.                  [ok]
 islandora_binary_object cloned from https://github.com/Islandora-Labs/islandora_binary_object.git.           [ok]
 Checked out branch 7.x.                                                                                      [ok]
 islandora_collection_search cloned from https://github.com/discoverygarden/islandora_collection_search.git.  [ok]
@@ -184,14 +184,14 @@ islandora_xslt_paths cloned from https://github.com/commonmedia/islandora_xslt_p
 Checked out branch master.                                                                                   [ok]
 
 Using Drush makefile ./custom.d/drupal-custom.yml to add CUSTOM non-contrib Drupal components to the /tmp/drupal_install site.
-Beginning to build /utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml.                      [ok]
+Beginning to build /isle_drupal_build_tools/custom.d/drupal-custom.yml.                      [ok]
 dg7 cloned from https://github.com/DigitalGrinnell/dg7.git.                                                  [ok]
 Checked out branch master.                                                                                   [ok]
 digital_grinnell_bootstrap cloned from https://github.com/DigitalGrinnell/digital_grinnell_bootstrap.git.    [ok]
 Checked out branch master.                                                                                   [ok]
 
 Using Drush makefile ./custom.d/islandora-custom.yml to add CUSTOM non-contrib Islandora components to the /tmp/drupal_install site.
-Beginning to build /utility-scripts/isle_drupal_build_tools/custom.d/islandora-custom.yml.                   [ok]
+Beginning to build /isle_drupal_build_tools/custom.d/islandora-custom.yml.                   [ok]
 islandora_mods_display cloned from https://github.com/DigitalGrinnell/islandora_mods_display.git.            [ok]
 Checked out branch master.                                                                                   [ok]
 islandora_multi_importer cloned from https://github.com/DigitalGrinnell/islandora_multi_importer.git.        [ok]
@@ -202,7 +202,7 @@ idu cloned from https://github.com/DigitalGrinnell/idu.git.                     
 Checked out branch master.                                                                                   [ok]
 
 Update settings.php with ISLE default.
-'/utility-scripts/isle_drupal_build_tools/isle-drush_make/settings.php' -> '/tmp/drupal_install/sites/default/settings.php'
+'/isle_drupal_build_tools/isle-drush_make/settings.php' -> '/tmp/drupal_install/sites/default/settings.php'
 
 Set response with HTTPS if front-end proxy is using HTTPS.
 SetEnvIf X-Forwarded-Proto https HTTPS=on
@@ -1107,7 +1107,7 @@ islandora_multi_importer was enabled successfully.                              
 islandora_multi_importer defines the following permissions: Import Objects using Islandora Multi Importer, Update Objects using Islandora Multi Importer, Manage Islandora Multi Importer Twig templates, Add new DSIDS to Islandora Multi Importer imports
 
 Looking for the newest *mysql.gz file in ../custom.d/exported-from-production.
-Copying most recent backup (/utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production/isle.localdomain-2019-03-08T14-36-01.mysql.gz) to manual backups directory.
+Copying most recent backup (/isle_drupal_build_tools/custom.d/exported-from-production/isle.localdomain-2019-03-08T14-36-01.mysql.gz) to manual backups directory.
 
 Restoring from most recent backup file: isle.localdomain-2019-03-08T14-36-01.mysql.gz.
 Restoring will delete some or all of your data and cannot be undone. ALWAYS TEST YOUR BACKUPS ON A NON-PRODUCTION SERVER!
@@ -1319,7 +1319,7 @@ The Apache installer is done!
 real	26m4.433s
 user	0m0.081s
 sys	0m0.052s
-Marks-Mac-Mini:ISLE-ld mark$ time docker exec -it isle-solr-ld bash /utility-scripts/isle_drupal_build_tools/custom.d/post-install-solr-script.sh
+Marks-Mac-Mini:ISLE-ld mark$ time docker exec -it isle-solr-ld bash /isle_drupal_build_tools/custom.d/post-install-solr-script.sh
 This is ../custom.d/post-install-solr-script.sh running Sat Mar  9 19:20:36 UTC 2019.
 
 Git clone the DigtalGrinnell/RepositoryX repository.

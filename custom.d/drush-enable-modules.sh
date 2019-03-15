@@ -42,7 +42,7 @@ drush -y -u 1 en islandora_binary_object --skip
 drush -y -u 1 en islandora_collection_search --skip
 # DEPRECATED drush -y -u 1 en islandora_jw_player
 drush -y -u 1 en islandora_mods_display --skip
-drush -y -u 1 en islandora_pdfjs_reader
+# drush -y -u 1 en islandora_pdfjs_reader --skip            # redundant?  We already have islandora_odfjs
 drush -y -u 1 en islandora_solr_collection_view --skip
 drush -y -u 1 en islandora_solution_pack_oralhistories
 drush -y -u 1 en islandora_xslt_paths --skip
