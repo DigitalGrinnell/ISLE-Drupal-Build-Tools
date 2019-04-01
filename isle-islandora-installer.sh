@@ -1,26 +1,23 @@
 #!/bin/bash
-#
-# This file, apache_installer.sh, is intended to replace isle_islandora_installer.sh in order to populate
-# an ISLE instance with Digital.Grinnell-specific elements.  Run it like so:
-#
-#     time docker exec -it isle-apache-{SHORT_NAME} bash ./utility-scripts/isle_drupal_build_tools/apache_installer.sh
-#
-# instead of:
-#
-#     time docker exec -it isle-apache-{SHORT_NAME} bash ./utility-scripts/isle_drupal_build_tools/isle_islandora_installer.sh
-#
-# @TODO Discuss with M.McFate on build_tools updates from builds.
-# Special thanks to Mark McFate for the improved versioning of the build tools.
-# @see https://github.com/DigitalGrinnell/ISLE/tree/clean-traefik-master/build/apache/isle_drupal_build_tools
-# Composer will be next, but the files commited here are a direct lift of Mark's build tools from the Alpha.
-# Thank you, @McFateM!
-#
+##
+## This file, isle-islandora-installer.sh, is intended to replace
+##   isle_islandora_installer.sh in order to populate an ISLE instance with
+##   customizable Drupal/Islandroa elements.  Run it like so:
+##
+##   time docker exec -it isle-apache-{SHORT_NAME} bash ./utility-scripts/isle_drupal_build_tools/isle-islandora-installer.sh
+##
+## @TODO Discuss with M.McFate on build_tools updates from builds.
+## Special thanks to Mark McFate for the improved versioning of the build tools.
+## @see https://github.com/DigitalGrinnell/ISLE/tree/clean-traefik-master/build/apache/isle_drupal_build_tools
+## Composer will be next, but the files commited here are a direct lift of Mark's build tools from the Alpha.
+## Thank you, @McFateM!
+##
 
-# Make the output pretty, if possible.
-#   Check if stdout is a terminal...
+## Make the output pretty, if possible.
+##   Check if stdout is a terminal...
 if test -t 1; then
 
-    # See if it supports colors...
+    ## See if it supports colors...
     ncolors=$(tput colors)
 
     if test -n "$ncolors" && test $ncolors -ge 8; then
@@ -40,9 +37,9 @@ if test -t 1; then
     fi
 fi
 
-# Ok, let's roll.
+## Ok, let's roll.
 date=`date`
-printf "${cyan}This is apache_installer.sh running ${date}.${normal}"
+printf "${cyan}This is isle-islandora-installer.sh running ${date}.${normal}"
 
 ## Stock Drupal core
 printf "${highlight}Using Drush makefile ./isle-drush_make/drupal-core.yml to create a bare Drupal site within /tmp/drupal_install.${normal}"
@@ -179,4 +176,4 @@ if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-s
   fi
 fi
 
-printf "${cyan}The Apache installer is done!${normal}"
+printf "${cyan}The isle-islandora-installer is done!${normal}"
