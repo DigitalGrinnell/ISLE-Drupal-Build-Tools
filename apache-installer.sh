@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# This file, grinnell_installer.sh, is intended to replace isle_islandora_installer.sh in order to populate
+# This file, apache_installer.sh, is intended to replace isle_islandora_installer.sh in order to populate
 # an ISLE instance with Digital.Grinnell-specific elements.  Run it like so:
 #
-#     time docker exec -it isle-apache-{SHORT_NAME} bash /isle_drupal_build_tools/apache_installer.sh
+#     time docker exec -it isle-apache-{SHORT_NAME} bash ./utility-scripts/isle_drupal_build_tools/apache_installer.sh
 #
 # instead of:
 #
-#     time docker exec -it isle-apache-{SHORT_NAME} bash /isle_drupal_build_tools/isle_islandora_installer.sh
+#     time docker exec -it isle-apache-{SHORT_NAME} bash ./utility-scripts/isle_drupal_build_tools/isle_islandora_installer.sh
 #
 # @TODO Discuss with M.McFate on build_tools updates from builds.
 # Special thanks to Mark McFate for the improved versioning of the build tools.
@@ -46,43 +46,43 @@ printf "${cyan}This is apache_installer.sh running ${date}.${normal}"
 
 ## Stock Drupal core
 printf "${highlight}Using Drush makefile ./isle-drush_make/drupal-core.yml to create a bare Drupal site within /tmp/drupal_install.${normal}"
-drush make --prepare-install /isle_drupal_build_tools/isle-drush_make/drupal-core.yml /tmp/drupal_install
+drush make --prepare-install ./utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-core.yml /tmp/drupal_install
 
 ## Stock Drupal contrib modules
 printf "${highlight}Using Drush makefile ./isle-drush_make/drupal-contrib.yml to add STOCK Drupal CONTRIB components to the /tmp/drupal_install site.${normal}"
-drush make --no-core /isle_drupal_build_tools/isle-drush_make/drupal-contrib.yml /tmp/drupal_install
+drush make --no-core ./utility-scripts/isle_drupal_build_tools/isle-drush_make/drupal-contrib.yml /tmp/drupal_install
 
 ## Stock Islandora contrib modules
 printf "${highlight}Using Drush makefile ./isle-drush_make/islandora-contrib.yml to add STOCK Islandora components to the /tmp/drupal_install site.${normal}"
-drush make --no-core /isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml /tmp/drupal_install
+drush make --no-core ./utility-scripts/isle_drupal_build_tools/isle-drush_make/islandora-contrib.yml /tmp/drupal_install
 
 ## Custom Drupal contrib modules IF .custom.d/drupal-contrib.yml exists.
-if [ -f /isle_drupal_build_tools/custom.d/drupal-contrib.yml ]; then
+if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/drupal-contrib.yml to add CUSTOM contrib Drupal components to the /tmp/drupal_install site.${normal}"
-  drush make --no-core /isle_drupal_build_tools/custom.d/drupal-contrib.yml /tmp/drupal_install
+  drush make --no-core ./utility-scripts/isle_drupal_build_tools/custom.d/drupal-contrib.yml /tmp/drupal_install
 fi
 
 ## Custom Islandora contrib modules IF .custom.d/islandora-contrib.yml exists.
-if [ -f /isle_drupal_build_tools/custom.d/islandora-contrib.yml ]; then
+if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/islandora-contrib.yml to add CUSTOM Islandora components to the /tmp/drupal_install site.${normal}"
-  drush make --no-core /isle_drupal_build_tools/custom.d/islandora-contrib.yml /tmp/drupal_install
+  drush make --no-core ./utility-scripts/isle_drupal_build_tools/custom.d/islandora-contrib.yml /tmp/drupal_install
 fi
 
 ## Custom Drupal non-contrib modules IF .custom.d/drupal-custom.yml exists.
-if [ -f /isle_drupal_build_tools/custom.d/drupal-custom.yml ]; then
+if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/drupal-custom.yml to add CUSTOM non-contrib Drupal components to the /tmp/drupal_install site.${normal}"
-  drush make --no-core /isle_drupal_build_tools/custom.d/drupal-custom.yml /tmp/drupal_install
+  drush make --no-core ./utility-scripts/isle_drupal_build_tools/custom.d/drupal-custom.yml /tmp/drupal_install
 fi
 
 ## Custom Islandora non-contrib modules IF .custom.d/islandora-custom.yml exists.
-if [ -f /isle_drupal_build_tools/custom.d/islandora-custom.yml ]; then
+if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/islandora-custom.yml ]; then
   printf "${highlight}Using Drush makefile ./custom.d/islandora-custom.yml to add CUSTOM non-contrib Islandora components to the /tmp/drupal_install site.${normal}"
-  drush make --no-core /isle_drupal_build_tools/custom.d/islandora-custom.yml /tmp/drupal_install
+  drush make --no-core ./utility-scripts/isle_drupal_build_tools/custom.d/islandora-custom.yml /tmp/drupal_install
 fi
 
 ## @TODO pass by var
 printf "${highlight}Update settings.php with ISLE default.${normal}"
-cp -fv /isle_drupal_build_tools/isle-drush_make/settings.php /tmp/drupal_install/sites/default/settings.php
+cp -fv ./utility-scripts/isle_drupal_build_tools/isle-drush_make/settings.php /tmp/drupal_install/sites/default/settings.php
 
 ## Respond with HTTPS if front-end proxy is using HTTPS.
 printf "${highlight}Set response with HTTPS if front-end proxy is using HTTPS.${normal}"
@@ -120,19 +120,19 @@ drush -u 1 -y vset islandora_base_url "fedora:8080/fedora"
 
 ## Enable modules
 printf "${highlight}Running ./drush-enable-modules.sh to enable (drush en) STOCK modules.${normal}"
-source /isle_drupal_build_tools/drush-enable-modules.sh
+source ./utility-scripts/isle_drupal_build_tools/drush-enable-modules.sh
 
 printf "${highlight}Running ./custom.d/drush-enable-modules.sh to enable (drush en) CUSTOM modules.${normal}"
-source /isle_drupal_build_tools/custom.d/drush-enable-modules.sh
+source ./utility-scripts/isle_drupal_build_tools/custom.d/drush-enable-modules.sh
 
 ## Drush vset of all settings
 printf "${highlight}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations.${normal}"
-source /isle_drupal_build_tools/drush-vset.sh
+source ./utility-scripts/isle_drupal_build_tools/drush-vset.sh
 
 ## Drush vset all CUSTOM settings.
-if [ -f /isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
+if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
   printf "${highlight}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations.${normal}"
-  source /isle_drupal_build_tools/custom.d/drush-vset.sh
+  source ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
 fi
 
 ## Special settings based on extensive experience with the Islandora stack
@@ -151,7 +151,7 @@ drush rap 'anonymous user' 'view fedora repository objects'
 
 # Fix site directory permissions
 printf "${highlight}Running fix-permissions script.${normal}"
-/bin/bash /isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
+/bin/bash ./utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 
 ## Cron job setup
 printf "${highlight}Configuring cron job to run every 3 hours.${normal}"
@@ -164,18 +164,18 @@ printf "${highlight}Clearing Drupal caches.${normal}"
 su -s /bin/bash www-data -c 'drush -u 1 cc all'
 
 ## Finalize the Apache container installation IF .custom.d/post-install-apache-script.sh exists.
-if [ -f /isle_drupal_build_tools/custom.d/post-install-apache-script.sh ]; then
+if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh ]; then
   printf "${highlight}Running ./custom.d/post-install-apache-script.sh to finalize this CUSTOM installation.${normal}"
-  source /isle_drupal_build_tools/custom.d/post-install-apache-script.sh
+  source ./utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh
 
   ## Repeat Drush vset of all settings, but only if a CUSTOM Apache script was run.
   printf "${highlight}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations.${normal}"
-  source /isle_drupal_build_tools/drush-vset.sh
+  source ./utility-scripts/isle_drupal_build_tools/drush-vset.sh
 
   ## Repeat Drush vset of all CUSTOM settings, but only if a CUSTOM Apache script was run.
-  if [ -f /isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
+  if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
     printf "${highlight}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations.${normal}"
-    source /isle_drupal_build_tools/custom.d/drush-vset.sh
+    source ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
   fi
 fi
 
