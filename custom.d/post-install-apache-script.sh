@@ -53,13 +53,13 @@ drush -u 1 -y en islandora_multi_importer
 printf "${highlight}Looking for the newest *mysql.gz file in ../custom.d/exported-from-production.${normal}"
 found=0
 unset -v latest
-for file in /isle_drupal_build_tools/custom.d/exported-from-production/*mysql.gz; do
+for file in /utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production/*mysql.gz; do
   [[ $file -nt $latest ]] && latest=$file
   found=1
 done
 
 if [ ${found} -eq 0 ]; then
-  printf "${highlight}No recent databsase backup found in /isle_drupal_build_tools/custom.d/exported-from-production!${normal}"
+  printf "${highlight}No recent databsase backup found in /utility-scripts/isle_drupal_build_tools/custom.d/exported-from-production!${normal}"
 else
   printf "Copying most recent backup ${cyan}($latest)${blue} to manual backups directory.${normal}"
   mkdir -p /var/www/private/backup_migrate/manual/
