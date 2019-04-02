@@ -110,10 +110,11 @@ drush cc all
 printf "${highlight}Dumping all current variables (vset/vget) before proceeding.${normal}"
 drush vget
 
-## Change directory to the site at ../sites/default and set critical variables.
+## Change directory to the site at ../sites/default and set critical variables. Then change back to the container root if successful!
 printf "${highlight}Changing directory to ../sites/default and set critical variables.${normal}"
 cd /var/www/html/sites/default || exit
 drush -u 1 -y vset islandora_base_url "fedora:8080/fedora"
+cd /
 
 ## Enable modules
 printf "${highlight}Running ./drush-enable-modules.sh to enable (drush en) STOCK modules.${normal}"
