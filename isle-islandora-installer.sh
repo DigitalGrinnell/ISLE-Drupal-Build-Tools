@@ -114,23 +114,22 @@ drush vget
 printf "${highlight}Changing directory to ../sites/default and set critical variables.${normal}"
 cd /var/www/html/sites/default || exit
 drush -u 1 -y vset islandora_base_url "fedora:8080/fedora"
-cd /
 
 ## Enable modules
 printf "${highlight}Running ./drush-enable-modules.sh to enable (drush en) STOCK modules.${normal}"
-source ./utility-scripts/isle_drupal_build_tools/drush-enable-modules.sh
+source /utility-scripts/isle_drupal_build_tools/drush-enable-modules.sh
 
 printf "${highlight}Running ./custom.d/drush-enable-modules.sh to enable (drush en) CUSTOM modules.${normal}"
-source ./utility-scripts/isle_drupal_build_tools/custom.d/drush-enable-modules.sh
+source /utility-scripts/isle_drupal_build_tools/custom.d/drush-enable-modules.sh
 
 ## Drush vset of all settings
 printf "${highlight}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations.${normal}"
-source ./utility-scripts/isle_drupal_build_tools/drush-vset.sh
+source /utility-scripts/isle_drupal_build_tools/drush-vset.sh
 
 ## Drush vset all CUSTOM settings.
-if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
   printf "${highlight}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations.${normal}"
-  source ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
+  source /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
 fi
 
 ## Special settings based on extensive experience with the Islandora stack
@@ -149,7 +148,7 @@ drush rap 'anonymous user' 'view fedora repository objects'
 
 # Fix site directory permissions
 printf "${highlight}Running fix-permissions script.${normal}"
-/bin/bash ./utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
+/bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 
 ## Cron job setup
 printf "${highlight}Configuring cron job to run every 3 hours.${normal}"
@@ -162,18 +161,18 @@ printf "${highlight}Clearing Drupal caches.${normal}"
 su -s /bin/bash www-data -c 'drush -u 1 cc all'
 
 ## Finalize the Apache container installation IF .custom.d/post-install-apache-script.sh exists.
-if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh ]; then
+if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh ]; then
   printf "${highlight}Running ./custom.d/post-install-apache-script.sh to finalize this CUSTOM installation.${normal}"
-  source ./utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh
+  source /utility-scripts/isle_drupal_build_tools/custom.d/post-install-apache-script.sh
 
   ## Repeat Drush vset of all settings, but only if a CUSTOM Apache script was run.
   printf "${highlight}Running ./drush-vset.sh for variable set (drush vset) of STOCK Drupal site configurations.${normal}"
-  source ./utility-scripts/isle_drupal_build_tools/drush-vset.sh
+  source /utility-scripts/isle_drupal_build_tools/drush-vset.sh
 
   ## Repeat Drush vset of all CUSTOM settings, but only if a CUSTOM Apache script was run.
-  if [ -f ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
+  if [ -f /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh ]; then
     printf "${highlight}Running ./custom.d/drush-vset.sh for variable set (drush vset) of CUSTOM Drupal site configurations.${normal}"
-    source ./utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
+    source /utility-scripts/isle_drupal_build_tools/custom.d/drush-vset.sh
   fi
 fi
 
